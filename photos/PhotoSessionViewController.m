@@ -33,6 +33,11 @@
     pictureTwoSelected   = NO;
     pictureThreeSelected = NO;
     
+    self.phoneOne.delegate = self;
+    self.phoneTwo.delegate = self;
+    self.phoneThree.delegate = self;
+
+    
     UITapGestureRecognizer *singleTapOne = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tappedPictureOne)];
     [self.pictureOne addGestureRecognizer:singleTapOne];
     UITapGestureRecognizer *singleTapTwo = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tappedPictureTwo)];
@@ -156,6 +161,20 @@
     [self dismissViewControllerAnimated:YES completion:nil];
     NSLog(@"Cancelled selecting image");
 
+}
+
+
+
+//#########
+-(BOOL) validatePhone:(NSString *) phoneText {
+
+    NSString *expression = @"^[0-9]{0,10}";
+    NSPredicate *test = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", expression];
+    return [test evaluateWithObject:phoneText];
+
+}
+- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
+    return [self validatePhone:[textField.text stringByReplacingCharactersInRange:range withString:string]];
 }
 
 @end

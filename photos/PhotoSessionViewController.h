@@ -8,7 +8,7 @@
 
 #import "ViewController.h"
 
-@interface PhotoSessionViewController : ViewController <UINavigationControllerDelegate, UIImagePickerControllerDelegate> {
+@interface PhotoSessionViewController : ViewController <UINavigationControllerDelegate, UIImagePickerControllerDelegate, UITextFieldDelegate> {
     @private UIImageView *currentPicture;
     @private BOOL pictureOneSelected;
     @private BOOL pictureTwoSelected;
