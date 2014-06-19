@@ -4,10 +4,10 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Photo Session View Controller-->
         <scene sceneID="ufC-wZ-h7g">
             <objects>
-                <viewController id="vXZ-lx-hvc" customClass="ViewController" sceneMemberID="viewController">
+                <viewController id="vXZ-lx-hvc" customClass="PhotoSessionViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="jyV-Pf-zRb"/>
                         <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>
@@ -41,21 +41,29 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="camera.png" translatesAutoresizingMaskIntoConstraints="NO" id="EXS-Bl-F2a">
+                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="camera.png" translatesAutoresizingMaskIntoConstraints="NO" id="EXS-Bl-F2a">
                                 <rect key="frame" x="96" y="259" width="128" height="128"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="camera.png" translatesAutoresizingMaskIntoConstraints="NO" id="0UF-nd-u7R">
+                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="camera.png" translatesAutoresizingMaskIntoConstraints="NO" id="0UF-nd-u7R">
                                 <rect key="frame" x="20" y="395" width="128" height="128"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="camera.png" translatesAutoresizingMaskIntoConstraints="NO" id="t0W-Ig-2DG">
+                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="camera.png" translatesAutoresizingMaskIntoConstraints="NO" id="t0W-Ig-2DG">
                                 <rect key="frame" x="172" y="395" width="128" height="128"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
+                    <connections>
+                        <outlet property="phoneOne" destination="tud-35-Syz" id="Mpb-wE-zrO"/>
+                        <outlet property="phoneThree" destination="Ioi-it-Ha5" id="aJQ-Fs-GOJ"/>
+                        <outlet property="phoneTwo" destination="g6D-tN-ABc" id="fIn-iO-1Qh"/>
+                        <outlet property="pictureOne" destination="EXS-Bl-F2a" id="z0b-In-Kxk"/>
+                        <outlet property="pictureThree" destination="t0W-Ig-2DG" id="UYt-Aw-eZb"/>
+                        <outlet property="pictureTwo" destination="0UF-nd-u7R" id="CKB-eL-75B"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
