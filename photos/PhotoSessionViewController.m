@@ -29,6 +29,9 @@
     // Do any additional setup after loading the view.
     
     currentPicture = 0;
+    pictureOneSelected   = NO;
+    pictureTwoSelected   = NO;
+    pictureThreeSelected = NO;
     
     UITapGestureRecognizer *singleTapOne = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tappedPictureOne)];
     [self.pictureOne addGestureRecognizer:singleTapOne];
@@ -39,13 +42,11 @@
 }
 
 -(void)selectImage{
-    UIImagePickerController *picker;
-//    if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypePhotoLibrary]) {
-//        picker = [[UIImagePickerController alloc] init];
-//        picker.delegate = self;
-//        picker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
-//    }
     
+    // Multiple Photo Lookup
+    // https://github.com/B-Sides/ELCImagePickerController
+    
+    UIImagePickerController *picker;
     picker = [[UIImagePickerController alloc] init];
     picker.delegate = self;
 
@@ -59,22 +60,57 @@
 
 }
 -(void)tappedPictureOne{
-    currentPicture = self.pictureOne;
     NSLog(@"single Tap on imageview One");
+    
+    if(pictureOneSelected){
 
-    [self selectImage];
+        self.pictureOne.image = [UIImage imageNamed: @"camera.png"];
+        pictureOneSelected = NO;
+        
+    } else {
+        
+        pictureOneSelected = YES;
+        currentPicture = self.pictureOne;
+        [self selectImage];
+        
+    }
+    
 }
 -(void)tappedPictureTwo{
     NSLog(@"single Tap on imageview Two");
+    
+    
+    if(pictureTwoSelected){
+        
+        self.pictureTwo.image = [UIImage imageNamed: @"camera.png"];
+        pictureTwoSelected = NO;
+        
+    } else {
+        
+        pictureTwoSelected = YES;
+        currentPicture = self.pictureTwo;
+        [self selectImage];
+    }
 
-    currentPicture = self.pictureTwo;
-    [self selectImage];
+
+    
 }
 -(void)tappedPictureThree{
     NSLog(@"single Tap on imageview Three");
+    
+    if(pictureThreeSelected){
+        
+        self.pictureThree.image = [UIImage imageNamed: @"camera.png"];
+        pictureThreeSelected = NO;
+        
+    } else {
+        
+        pictureThreeSelected = YES;
+        currentPicture = self.pictureThree;
+        [self selectImage];
+    }
 
-    currentPicture = self.pictureThree;
-    [self selectImage];
+    
 }
 
 - (void)didReceiveMemoryWarning

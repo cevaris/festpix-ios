@@ -10,6 +10,9 @@
 
 @interface PhotoSessionViewController : ViewController <UINavigationControllerDelegate, UIImagePickerControllerDelegate> {
     @private UIImageView *currentPicture;
+    @private BOOL pictureOneSelected;
+    @private BOOL pictureTwoSelected;
+    @private BOOL pictureThreeSelected;
 }
 
 
