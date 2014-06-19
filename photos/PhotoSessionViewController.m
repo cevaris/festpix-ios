@@ -113,6 +113,13 @@
     
 }
 
+- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
+{
+    [self.phoneOne   resignFirstResponder];
+    [self.phoneTwo   resignFirstResponder];
+    [self.phoneThree resignFirstResponder];
+}
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
