@@ -7,6 +7,8 @@
 //
 
 #import "PhotoSessionViewController.h"
+#import "ELCImagePickerController.h"
+#import "ELCAlbumPickerController.h"
 
 @interface PhotoSessionViewController ()
 
@@ -51,16 +53,28 @@
     // Multiple Photo Lookup
     // https://github.com/B-Sides/ELCImagePickerController
     
-    UIImagePickerController *picker;
-    picker = [[UIImagePickerController alloc] init];
-    picker.delegate = self;
+    // Create the image picker
+    ELCAlbumPickerController *albumController = [[ELCAlbumPickerController alloc]
+                                                initWithNibName:@"ELCAlbumPickerController" bundle:[NSBundle mainBundle]];
+    ELCImagePickerController *elcPicker = [[ELCImagePickerController alloc] initWithRootViewController:albumController];
+    elcPicker.maximumImagesCount = 3; //Set the maximum number of images to select, defaults to 4
+//    imagePicker.returnsOriginalImage = NO; //Only return the fullScreenImage, not the fullResolutionImage
+    elcPicker.imagePickerDelegate = self;
+    
+    albumController.parent = elcPicker;
 
-    if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]){
-        picker.sourceType = UIImagePickerControllerSourceTypeCamera;
-    } else {
-        picker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
-    }
-    [self presentViewController:picker animated:YES completion:Nil];
+    [self presentViewController:elcPicker animated:YES completion:nil];
+    
+//    UIImagePickerController *picker;
+//    picker = [[UIImagePickerController alloc] init];
+//    picker.delegate = self;
+//
+//    if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]){
+//        picker.sourceType = UIImagePickerControllerSourceTypeCamera;
+//    } else {
+//        picker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+//    }
+//    [self presentViewController:picker animated:YES completion:Nil];
 
 
 }
