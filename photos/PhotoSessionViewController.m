@@ -85,6 +85,26 @@
     // https://github.com/felina/ios/blob/0e80ceb743447752487cb4f6e109b86f403e2c58/Felina/FECustomImagePickerViewController.m
     
     [self dismissViewControllerAnimated:YES completion:nil];
+    
+    for (int i=0; i < info.count; i++) {
+        UIImage *image = [info[i] objectForKey:UIImagePickerControllerOriginalImage];
+        switch (i) {
+            case 0:
+                self.pictureOne.image = image;
+                pictureOneSelected = YES;
+                break;
+            case 1:
+                self.pictureTwo.image = image;
+                pictureTwoSelected = YES;
+                break;
+            case 2:
+                self.pictureThree.image = image;
+                pictureThreeSelected = YES;
+                break;
+            default:
+                break;
+        }
+    }
 }
 - (void)elcImagePickerControllerDidCancel:(ELCImagePickerController *)picker {
     [self dismissViewControllerAnimated:YES completion:nil];
