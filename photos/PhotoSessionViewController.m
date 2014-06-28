@@ -80,6 +80,10 @@
 
 - (void)elcImagePickerController:(ELCImagePickerController *)picker didFinishPickingMediaWithInfo:(NSArray *)info {
     NSLog(@"Callback from Image Selection");
+    
+    // How to retrieve images after picker
+    // https://github.com/felina/ios/blob/0e80ceb743447752487cb4f6e109b86f403e2c58/Felina/FECustomImagePickerViewController.m
+    
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 - (void)elcImagePickerControllerDidCancel:(ELCImagePickerController *)picker {
