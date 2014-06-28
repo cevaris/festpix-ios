@@ -57,8 +57,7 @@
     ELCAlbumPickerController *albumController = [[ELCAlbumPickerController alloc]
                                                 initWithNibName:@"ELCAlbumPickerController" bundle:[NSBundle mainBundle]];
     ELCImagePickerController *elcPicker = [[ELCImagePickerController alloc] initWithRootViewController:albumController];
-    elcPicker.maximumImagesCount = 3; //Set the maximum number of images to select, defaults to 4
-//    imagePicker.returnsOriginalImage = NO; //Only return the fullScreenImage, not the fullResolutionImage
+    elcPicker.maximumImagesCount = 3;
     elcPicker.imagePickerDelegate = self;
     
     albumController.parent = elcPicker;
