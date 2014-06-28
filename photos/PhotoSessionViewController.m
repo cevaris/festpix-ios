@@ -63,52 +63,10 @@
     albumController.parent = elcPicker;
 
     [self presentViewController:elcPicker animated:YES completion:nil];
-    
-//    UIImagePickerController *picker;
-//    picker = [[UIImagePickerController alloc] init];
-//    picker.delegate = self;
-//
-//    if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]){
-//        picker.sourceType = UIImagePickerControllerSourceTypeCamera;
-//    } else {
-//        picker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
-//    }
-//    [self presentViewController:picker animated:YES completion:Nil];
 
 
 }
 
-- (void)elcImagePickerController:(ELCImagePickerController *)picker didFinishPickingMediaWithInfo:(NSArray *)info {
-    NSLog(@"Callback from Image Selection");
-    
-    // How to retrieve images after picker
-    // https://github.com/felina/ios/blob/0e80ceb743447752487cb4f6e109b86f403e2c58/Felina/FECustomImagePickerViewController.m
-    
-    [self dismissViewControllerAnimated:YES completion:nil];
-    
-    for (int i=0; i < info.count; i++) {
-        UIImage *image = [info[i] objectForKey:UIImagePickerControllerOriginalImage];
-        switch (i) {
-            case 0:
-                self.pictureOne.image = image;
-                pictureOneSelected = YES;
-                break;
-            case 1:
-                self.pictureTwo.image = image;
-                pictureTwoSelected = YES;
-                break;
-            case 2:
-                self.pictureThree.image = image;
-                pictureThreeSelected = YES;
-                break;
-            default:
-                break;
-        }
-    }
-}
-- (void)elcImagePickerControllerDidCancel:(ELCImagePickerController *)picker {
-    [self dismissViewControllerAnimated:YES completion:nil];
-}
 
 -(void)tappedPictureOne{
     NSLog(@"single Tap on imageview One");
@@ -160,8 +118,6 @@
         currentPicture = self.pictureThree;
         [self selectImage];
     }
-
-    
 }
 
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
@@ -188,26 +144,42 @@
 }
 */
 
-- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
-    
-    // Dismiss Gallery
-    [self dismissViewControllerAnimated:NO completion:nil];
-    // Get selected image
-    UIImage *selectedImage = [info objectForKey:@"UIImagePickerControllerOriginalImage"];
-    // If we have current picture state
-    if (currentPicture) {
-        // Set selected picture
-        [currentPicture setImage:selectedImage];
-        currentPicture = nil;
-    }
-    
-}
 
-- (void)imagePickerControllerDidCancel:(UIImagePickerController *) Picker {
+/*
+ #pragma mark - ELCImagePickerController
+
+*/
+- (void)elcImagePickerController:(ELCImagePickerController *)picker didFinishPickingMediaWithInfo:(NSArray *)info {
+    
+    // How to retrieve images after picker
+    // https://github.com/felina/ios/blob/0e80ceb743447752487cb4f6e109b86f403e2c58/Felina/FECustomImagePickerViewController.m
+    
     [self dismissViewControllerAnimated:YES completion:nil];
-    NSLog(@"Cancelled selecting image");
-
+    
+    for (int i=0; i < info.count; i++) {
+        UIImage *image = [info[i] objectForKey:UIImagePickerControllerOriginalImage];
+        switch (i) {
+            case 0:
+                self.pictureOne.image = image;
+                pictureOneSelected = YES;
+                break;
+            case 1:
+                self.pictureTwo.image = image;
+                pictureTwoSelected = YES;
+                break;
+            case 2:
+                self.pictureThree.image = image;
+                pictureThreeSelected = YES;
+                break;
+            default:
+                break;
+        }
+    }
 }
+- (void)elcImagePickerControllerDidCancel:(ELCImagePickerController *)picker {
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
 
 
 
