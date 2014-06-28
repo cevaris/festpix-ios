@@ -77,6 +77,15 @@
 
 
 }
+
+- (void)elcImagePickerController:(ELCImagePickerController *)picker didFinishPickingMediaWithInfo:(NSArray *)info {
+    NSLog(@"Callback from Image Selection");
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+- (void)elcImagePickerControllerDidCancel:(ELCImagePickerController *)picker {
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
 -(void)tappedPictureOne{
     NSLog(@"single Tap on imageview One");
     
