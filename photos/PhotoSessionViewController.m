@@ -41,7 +41,8 @@
 }
 
 -(void) resetUI {
-    self.txtPhoneOne.text = @"5594516126";
+//    self.txtPhoneOne.text = @"5594516126";
+    self.txtPhoneOne.text = @"";
     self.txtPhoneTwo.text = @"";
     self.txtPhoneThree.text = @"";
     
@@ -138,6 +139,29 @@
     return [test evaluateWithObject:phoneText];
 
 }
+-(BOOL) validateBeforeSubmit {
+    
+    if([[self getPhoneList] length] < 10){
+        
+        [[[UIAlertView alloc] initWithTitle:@"Form Error"
+                                    message:@"Missing Phone Number."
+                                   delegate:self
+                          cancelButtonTitle:@"Cancel"
+                          otherButtonTitles:@"Ok", nil] show];
+
+        return NO;
+    }
+    if([[self getPictureList] count] == 0){
+        [[[UIAlertView alloc] initWithTitle:@"Form Error"
+                                    message:@"Missing Pictures, please select one."
+                                   delegate:self
+                          cancelButtonTitle:@"Cancel"
+                          otherButtonTitles:@"Ok", nil] show];
+        return NO;
+    }
+    
+    return YES;
+}
 -(NSString*) getPhoneList {
     NSMutableArray *phones = [[NSMutableArray alloc]init];
 
@@ -156,10 +180,9 @@
 - (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
     return [self validatePhone:[textField.text stringByReplacingCharactersInRange:range withString:string]];
 }
--(void)postData {
-    
+-(NSArray*) getPictureList {
     NSMutableArray *images = [[NSMutableArray alloc]init];
-    
+   
     if(self.pictureOne.image != defaultImg){
         NSLog(@"Pic One set");
         [images addObject:self.pictureOne.image];
@@ -172,9 +195,15 @@
         NSLog(@"Pic Three set");
         [images addObject:self.pictureThree.image];
     }
+    return [[NSArray alloc] initWithArray:images];
+}
+-(void)postData {
     
+    if([self validateBeforeSubmit] == NO)
+        return;
+    
+    NSArray *images = [self getPictureList];
     NSLog(@"Phones: %@", [self getPhoneList]);
-    
     
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     NSDictionary *parameters = @{@"photo_session[phone_list]": [self getPhoneList]};
@@ -182,40 +211,17 @@
         
         for(int i=0;i<[images count];i++) {
             UIImage *eachImage  = [images objectAtIndex:i];
-            NSData *imageData = UIImageJPEGRepresentation(eachImage,1.0);
-            [formData appendPartWithFileData:imageData
+            [formData appendPartWithFileData:UIImageJPEGRepresentation(eachImage,1.0)
                                         name:[NSString stringWithFormat:@"photo_session[photos_attributes][%d][image]", i]
                                     fileName:[NSString stringWithFormat:@"%d.jpg", i]
                                     mimeType:@"image/jpeg"];
-//            [formData appendPartWithFormData:imageData name:[NSString stringWithFormat:@"%d", i]];
-//            [formData appendPartWithFileData:imageData name:[NSString stringWithFormat:@"file%d",i ] fileName:[NSString stringWithFormat:@"abc%d.jpg",i ];
         }
-        
-//        [formData appendPartWithFileData:imageData name:@"image" error:nil];
     } success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        NSLog(@"Success: %@", responseObject);
-        NSLog(@"Path: %@", [responseObject valueForKey:@"path"]);
+        NSLog(@"Success Path: %@", [responseObject valueForKey:@"path"]);
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         NSLog(@"Error: %@", error);
     }];
     
-//
-//    
-////    NSMutableURLRequest *request = [[AFNetWorkSingleton shareInstance] multipartFormRequestWithMethod:@"POST"
-////                                                                                                 path:@"photo_session"
-////                                                                                           parameters:nil constructingBodyWithBlock:^(id<AFMultipartFormData>formData){
-////        
-////        for(int i=0;i<[array count];i++) {
-////            UIImage *eachImage  = [array objectAtIndex:i];
-////            NSData *imageData = UIImageJPEGRepresentation(eachImage,0.5);
-////            [formData appendPartWithFileData:imageData name:[NSString stringWithFormat:@"file%d",i ] fileName:[NSString stringWithFormat:@"abc%d.jpg",i ] mimeType:@"image/jpeg"];
-////        }
-////    }];
-////    
-//////    AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
-//////    [operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject){
-//////         NSLog(@"2");
-//////    }];
 }
 
 /*
