@@ -41,7 +41,7 @@
 }
 
 -(void) resetUI {
-    self.txtPhoneOne.text = @"";
+    self.txtPhoneOne.text = @"5594516126";
     self.txtPhoneTwo.text = @"";
     self.txtPhoneThree.text = @"";
     
@@ -104,7 +104,7 @@
     
     [self dismissViewControllerAnimated:YES completion:nil];
     
-    [self resetUI];
+//    [self resetUI];
     
     for (int i=0; i < info.count; i++) {
         UIImage *image = [info[i] objectForKey:UIImagePickerControllerOriginalImage];
@@ -176,24 +176,28 @@
     NSLog(@"Phones: %@", [self getPhoneList]);
     
     
-//    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
-//    NSDictionary *parameters = @{@"photo_session[phone_list]": @"bar"};
-////    NSURL *filePath = [NSURL fileURLWithPath:@"file://path/to/image.png"];
-//    [manager POST:@"http://example.com/resources.json" parameters:parameters constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
-//        
-//        for(int i=0;i<[images count];i++) {
-//            UIImage *eachImage  = [images objectAtIndex:i];
-//            NSData *imageData = UIImageJPEGRepresentation(eachImage,0.5);
-//            [formData appendPartWithFormData:imageData name:@"test"];
-////            [formData appendPartWithFileData:imageData name:[NSString stringWithFormat:@"file%d",i ] fileName:[NSString stringWithFormat:@"abc%d.jpg",i ];
-//        }
-//        
-////        [formData appendPartWithFileData:imageData name:@"image" error:nil];
-//    } success:^(AFHTTPRequestOperation *operation, id responseObject) {
-//        NSLog(@"Success: %@", responseObject);
-//    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-//        NSLog(@"Error: %@", error);
-//    }];
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    NSDictionary *parameters = @{@"photo_session[phone_list]": [self getPhoneList]};
+//    NSURL *filePath = [NSURL fileURLWithPath:@"file://path/to/image.png"];
+    [manager POST:@"http://localhost:3000/photo_sessions" parameters:parameters constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
+        
+        for(int i=0;i<[images count];i++) {
+            UIImage *eachImage  = [images objectAtIndex:i];
+            NSData *imageData = UIImageJPEGRepresentation(eachImage,1.0);
+            [formData appendPartWithFileData:imageData
+                                        name:[NSString stringWithFormat:@"photo_session[photos_attributes][%d]", i]
+                                    fileName:[NSString stringWithFormat:@"photo_session[photos_attributes][%d]", i]
+                                    mimeType:@"image/jpeg"];
+//            [formData appendPartWithFormData:imageData name:[NSString stringWithFormat:@"%d", i]];
+//            [formData appendPartWithFileData:imageData name:[NSString stringWithFormat:@"file%d",i ] fileName:[NSString stringWithFormat:@"abc%d.jpg",i ];
+        }
+        
+//        [formData appendPartWithFileData:imageData name:@"image" error:nil];
+    } success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        NSLog(@"Success: %@", responseObject);
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"Error: %@", error);
+    }];
     
 //
 //    
