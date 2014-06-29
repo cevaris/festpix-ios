@@ -8,6 +8,7 @@
 
 #import "ViewController.h"
 #import "ELCImagePickerController.h"
+#import "AFNetworking.h"
 
 @interface PhotoSessionViewController : ViewController <UINavigationControllerDelegate, ELCImagePickerControllerDelegate, UITextFieldDelegate> {
     @private UIImageView *currentPicture;

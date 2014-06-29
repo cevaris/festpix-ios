@@ -92,6 +92,13 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		53275BA61960743900D8C5E6 /* common */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = common;
+			sourceTree = "<group>";
+		};
 		53A4B7D419527ADD007262F0 = {
 			isa = PBXGroup;
 			children = (
@@ -127,6 +134,7 @@
 		53A4B7E619527ADD007262F0 /* photos */ = {
 			isa = PBXGroup;
 			children = (
+				53275BA61960743900D8C5E6 /* common */,
 				53A4B81B19527FEE007262F0 /* views */,
 				53A4B81819527EBC007262F0 /* images */,
 				53A4B7EF19527ADD007262F0 /* AppDelegate.h */,

@@ -146,20 +146,48 @@
     return [self validatePhone:[textField.text stringByReplacingCharactersInRange:range withString:string]];
 }
 -(void)postData {
-//    NSURLRequest* request = [[ sharedHTTPClient] multipartFormRequestWithMethod:@"POST"
-//                                                                                         path:path
-//                                                                                   parameters:dict
-//                                                                    constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
-//                                                                        [formData appendPartWithFileData:data1
-//                                                                                                    name:@"image1"
-//                                                                                                fileName:@"image1.jpg"
-//                                                                                                mimeType:@"image/jpeg"];
-//                                                                        [formData appendPartWithFileData:data2
-//                                                                                                    name:@"image2"
-//                                                                                                fileName:@"image2.jpg"
-//                                                                                                mimeType:@"image/jpeg"];
-//                                                                    }
-//                             }];
+    UIImage *image1 = [UIImage imageNamed:@"about_app"];
+    UIImage *image2 = [UIImage imageNamed:@"alter"];
+    NSArray *array = @[image1,image2];
+    
+//    UIImage *image = [info valueForKey:UIImagePickerControllerOriginalImage];
+//    NSData *imageData = UIImageJPEGRepresentation(image1, 0.5);
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    NSDictionary *parameters = @{@"foo": @"bar"};
+//    NSURL *filePath = [NSURL fileURLWithPath:@"file://path/to/image.png"];
+    [manager POST:@"http://example.com/resources.json" parameters:parameters constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
+        
+        for(int i=0;i<[array count];i++) {
+            UIImage *eachImage  = [array objectAtIndex:i];
+            NSData *imageData = UIImageJPEGRepresentation(eachImage,0.5);
+            [formData appendPartWithFormData:imageData name:@"test"];
+//            [formData appendPartWithFileData:imageData name:[NSString stringWithFormat:@"file%d",i ] fileName:[NSString stringWithFormat:@"abc%d.jpg",i ];
+        }
+        
+//        [formData appendPartWithFileData:imageData name:@"image" error:nil];
+    } success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        NSLog(@"Success: %@", responseObject);
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"Error: %@", error);
+    }];
+    
+    
+    
+//    NSMutableURLRequest *request = [[AFNetWorkSingleton shareInstance] multipartFormRequestWithMethod:@"POST"
+//                                                                                                 path:@"photo_session"
+//                                                                                           parameters:nil constructingBodyWithBlock:^(id<AFMultipartFormData>formData){
+//        
+//        for(int i=0;i<[array count];i++) {
+//            UIImage *eachImage  = [array objectAtIndex:i];
+//            NSData *imageData = UIImageJPEGRepresentation(eachImage,0.5);
+//            [formData appendPartWithFileData:imageData name:[NSString stringWithFormat:@"file%d",i ] fileName:[NSString stringWithFormat:@"abc%d.jpg",i ] mimeType:@"image/jpeg"];
+//        }
+//    }];
+//    
+////    AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
+////    [operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject){
+////         NSLog(@"2");
+////    }];
 }
 
 /*
