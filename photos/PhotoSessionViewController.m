@@ -143,20 +143,20 @@
 }
 -(void)postData {
     
-    NSMutableArray *images = [NSMutableArray alloc]init];
+    NSMutableArray *images = [[NSMutableArray alloc]init];
     
-//    if(self.pictureOne.image == defaultImg){
-//        NSLog(@"Pic One set");
-//        [images addObject:self.pictureOne.image];
-//    }
-//    if(self.pictureTwo.image == defaultImg){
-//        NSLog(@"Pic Two set");
-//        [images addObject:self.pictureTwo.image];
-//    }
-//    if(self.pictureThree.image == defaultImg){
-//        NSLog(@"Pic Three set");
-//        [images addObject:self.pictureThree.image];
-//    }
+    if(self.pictureOne.image != defaultImg){
+        NSLog(@"Pic One set");
+        [images addObject:self.pictureOne.image];
+    }
+    if(self.pictureTwo.image != defaultImg){
+        NSLog(@"Pic Two set");
+        [images addObject:self.pictureTwo.image];
+    }
+    if(self.pictureThree.image != defaultImg){
+        NSLog(@"Pic Three set");
+        [images addObject:self.pictureThree.image];
+    }
     
 //    
 //    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
