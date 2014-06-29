@@ -145,6 +145,22 @@
 - (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
     return [self validatePhone:[textField.text stringByReplacingCharactersInRange:range withString:string]];
 }
+-(void)postData {
+//    NSURLRequest* request = [[ sharedHTTPClient] multipartFormRequestWithMethod:@"POST"
+//                                                                                         path:path
+//                                                                                   parameters:dict
+//                                                                    constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
+//                                                                        [formData appendPartWithFileData:data1
+//                                                                                                    name:@"image1"
+//                                                                                                fileName:@"image1.jpg"
+//                                                                                                mimeType:@"image/jpeg"];
+//                                                                        [formData appendPartWithFileData:data2
+//                                                                                                    name:@"image2"
+//                                                                                                fileName:@"image2.jpg"
+//                                                                                                mimeType:@"image/jpeg"];
+//                                                                    }
+//                             }];
+}
 
 /*
  #pragma mark - TouchedButtons
