@@ -138,6 +138,21 @@
     return [test evaluateWithObject:phoneText];
 
 }
+-(NSString*) getPhoneList {
+    NSMutableArray *phones = [[NSMutableArray alloc]init];
+
+    if([self.txtPhoneOne.text length] != 0){
+        [phones addObject:self.txtPhoneOne.text];
+    }
+    if([self.txtPhoneTwo.text length] != 0){
+        [phones addObject:self.txtPhoneTwo.text];
+    }
+    if([self.txtPhoneThree.text length] != 0){
+        [phones addObject:self.txtPhoneThree.text];
+    }
+    
+    return [phones componentsJoinedByString:@","];
+}
 - (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
     return [self validatePhone:[textField.text stringByReplacingCharactersInRange:range withString:string]];
 }
@@ -158,9 +173,11 @@
         [images addObject:self.pictureThree.image];
     }
     
-//    
+    NSLog(@"Phones: %@", [self getPhoneList]);
+    
+    
 //    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
-//    NSDictionary *parameters = @{@"foo": @"bar"};
+//    NSDictionary *parameters = @{@"photo_session[phone_list]": @"bar"};
 ////    NSURL *filePath = [NSURL fileURLWithPath:@"file://path/to/image.png"];
 //    [manager POST:@"http://example.com/resources.json" parameters:parameters constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
 //        
@@ -177,8 +194,8 @@
 //    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
 //        NSLog(@"Error: %@", error);
 //    }];
-//    
-//    
+    
+//
 //    
 ////    NSMutableURLRequest *request = [[AFNetWorkSingleton shareInstance] multipartFormRequestWithMethod:@"POST"
 ////                                                                                                 path:@"photo_session"
