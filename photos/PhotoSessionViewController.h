@@ -11,10 +11,7 @@
 #import "AFNetworking.h"
 
 @interface PhotoSessionViewController : ViewController <UINavigationControllerDelegate, ELCImagePickerControllerDelegate, UITextFieldDelegate> {
-    @private UIImageView *currentPicture;
-    @private BOOL pictureOneSelected;
-    @private BOOL pictureTwoSelected;
-    @private BOOL pictureThreeSelected;
+    @private UIImage *defaultImg;
 }
 
 @property (weak, nonatomic) IBOutlet UITextField *txtPhoneOne;

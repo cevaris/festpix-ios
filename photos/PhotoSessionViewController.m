@@ -21,7 +21,7 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
-    }
+    }    
     return self;
 }
 
@@ -30,10 +30,9 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    currentPicture = 0;
-    pictureOneSelected   = NO;
-    pictureTwoSelected   = NO;
-    pictureThreeSelected = NO;
+    defaultImg = [UIImage imageNamed:@"camera.png"];
+    
+    [self resetUI];
     
     self.txtPhoneOne.delegate = self;
     self.txtPhoneTwo.delegate = self;
@@ -46,9 +45,9 @@
     self.txtPhoneTwo.text = @"";
     self.txtPhoneThree.text = @"";
     
-    self.pictureOne.image = [UIImage imageNamed: @"camera.png"];
-    self.pictureTwo.image = [UIImage imageNamed: @"camera.png"];
-    self.pictureThree.image = [UIImage imageNamed: @"camera.png"];
+    self.pictureOne.image   = defaultImg;
+    self.pictureTwo.image   = defaultImg;
+    self.pictureThree.image = defaultImg;
 }
 -(void)selectImages{
     
@@ -112,15 +111,12 @@
         switch (i) {
             case 0:
                 self.pictureOne.image = image;
-                pictureOneSelected = YES;
                 break;
             case 1:
                 self.pictureTwo.image = image;
-                pictureTwoSelected = YES;
                 break;
             case 2:
                 self.pictureThree.image = image;
-                pictureThreeSelected = YES;
                 break;
             default:
                 break;
@@ -146,48 +142,59 @@
     return [self validatePhone:[textField.text stringByReplacingCharactersInRange:range withString:string]];
 }
 -(void)postData {
-    UIImage *image1 = [UIImage imageNamed:@"about_app"];
-    UIImage *image2 = [UIImage imageNamed:@"alter"];
-    NSArray *array = @[image1,image2];
     
-//    UIImage *image = [info valueForKey:UIImagePickerControllerOriginalImage];
-//    NSData *imageData = UIImageJPEGRepresentation(image1, 0.5);
-    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
-    NSDictionary *parameters = @{@"foo": @"bar"};
-//    NSURL *filePath = [NSURL fileURLWithPath:@"file://path/to/image.png"];
-    [manager POST:@"http://example.com/resources.json" parameters:parameters constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
-        
-        for(int i=0;i<[array count];i++) {
-            UIImage *eachImage  = [array objectAtIndex:i];
-            NSData *imageData = UIImageJPEGRepresentation(eachImage,0.5);
-            [formData appendPartWithFormData:imageData name:@"test"];
-//            [formData appendPartWithFileData:imageData name:[NSString stringWithFormat:@"file%d",i ] fileName:[NSString stringWithFormat:@"abc%d.jpg",i ];
-        }
-        
-//        [formData appendPartWithFileData:imageData name:@"image" error:nil];
-    } success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        NSLog(@"Success: %@", responseObject);
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        NSLog(@"Error: %@", error);
-    }];
+    NSMutableArray *images = [NSMutableArray alloc]init];
     
+//    if(self.pictureOne.image == defaultImg){
+//        NSLog(@"Pic One set");
+//        [images addObject:self.pictureOne.image];
+//    }
+//    if(self.pictureTwo.image == defaultImg){
+//        NSLog(@"Pic Two set");
+//        [images addObject:self.pictureTwo.image];
+//    }
+//    if(self.pictureThree.image == defaultImg){
+//        NSLog(@"Pic Three set");
+//        [images addObject:self.pictureThree.image];
+//    }
     
-    
-//    NSMutableURLRequest *request = [[AFNetWorkSingleton shareInstance] multipartFormRequestWithMethod:@"POST"
-//                                                                                                 path:@"photo_session"
-//                                                                                           parameters:nil constructingBodyWithBlock:^(id<AFMultipartFormData>formData){
+//    
+//    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+//    NSDictionary *parameters = @{@"foo": @"bar"};
+////    NSURL *filePath = [NSURL fileURLWithPath:@"file://path/to/image.png"];
+//    [manager POST:@"http://example.com/resources.json" parameters:parameters constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
 //        
-//        for(int i=0;i<[array count];i++) {
-//            UIImage *eachImage  = [array objectAtIndex:i];
+//        for(int i=0;i<[images count];i++) {
+//            UIImage *eachImage  = [images objectAtIndex:i];
 //            NSData *imageData = UIImageJPEGRepresentation(eachImage,0.5);
-//            [formData appendPartWithFileData:imageData name:[NSString stringWithFormat:@"file%d",i ] fileName:[NSString stringWithFormat:@"abc%d.jpg",i ] mimeType:@"image/jpeg"];
+//            [formData appendPartWithFormData:imageData name:@"test"];
+////            [formData appendPartWithFileData:imageData name:[NSString stringWithFormat:@"file%d",i ] fileName:[NSString stringWithFormat:@"abc%d.jpg",i ];
 //        }
+//        
+////        [formData appendPartWithFileData:imageData name:@"image" error:nil];
+//    } success:^(AFHTTPRequestOperation *operation, id responseObject) {
+//        NSLog(@"Success: %@", responseObject);
+//    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+//        NSLog(@"Error: %@", error);
 //    }];
 //    
-////    AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
-////    [operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject){
-////         NSLog(@"2");
+//    
+//    
+////    NSMutableURLRequest *request = [[AFNetWorkSingleton shareInstance] multipartFormRequestWithMethod:@"POST"
+////                                                                                                 path:@"photo_session"
+////                                                                                           parameters:nil constructingBodyWithBlock:^(id<AFMultipartFormData>formData){
+////        
+////        for(int i=0;i<[array count];i++) {
+////            UIImage *eachImage  = [array objectAtIndex:i];
+////            NSData *imageData = UIImageJPEGRepresentation(eachImage,0.5);
+////            [formData appendPartWithFileData:imageData name:[NSString stringWithFormat:@"file%d",i ] fileName:[NSString stringWithFormat:@"abc%d.jpg",i ] mimeType:@"image/jpeg"];
+////        }
 ////    }];
+////    
+//////    AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
+//////    [operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject){
+//////         NSLog(@"2");
+//////    }];
 }
 
 /*
@@ -196,7 +203,7 @@
  */
 - (IBAction)touchedSubmit:(id)sender {
     NSLog(@"Submitting Upload of Photos");
-
+    [self postData];
 }
 
 - (IBAction)touchedAddPhotos:(id)sender {
