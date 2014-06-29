@@ -194,6 +194,7 @@
 //        [formData appendPartWithFileData:imageData name:@"image" error:nil];
     } success:^(AFHTTPRequestOperation *operation, id responseObject) {
         NSLog(@"Success: %@", responseObject);
+        NSLog(@"Path: %@", [responseObject valueForKey:@"path"]);
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         NSLog(@"Error: %@", error);
     }];
