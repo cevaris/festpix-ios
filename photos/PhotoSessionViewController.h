@@ -16,14 +16,24 @@
     @private BOOL pictureThreeSelected;
 }
 
-
-@property (weak, nonatomic) IBOutlet UITextField *phoneOne;
-@property (weak, nonatomic) IBOutlet UITextField *phoneTwo;
-@property (weak, nonatomic) IBOutlet UITextField *phoneThree;
+@property (weak, nonatomic) IBOutlet UITextField *txtPhoneOne;
+@property (weak, nonatomic) IBOutlet UITextField *txtPhoneTwo;
+@property (weak, nonatomic) IBOutlet UITextField *txtPhoneThree;
 
 @property (weak, nonatomic) IBOutlet UIImageView *pictureOne;
 @property (weak, nonatomic) IBOutlet UIImageView *pictureTwo;
 @property (weak, nonatomic) IBOutlet UIImageView *pictureThree;
+
+@property (weak, nonatomic) IBOutlet UIButton *btnReset;
+@property (weak, nonatomic) IBOutlet UIButton *btnAddPhotos;
+@property (weak, nonatomic) IBOutlet UIButton *btnSubmit;
+
+
+- (IBAction)touchedSubmit:(id)sender;
+- (IBAction)touchedAddPhotos:(id)sender;
+- (IBAction)touchedReset:(id)sender;
+
+
 
 
 @end

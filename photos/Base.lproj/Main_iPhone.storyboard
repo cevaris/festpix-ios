@@ -61,15 +61,21 @@
                                 <state key="normal" title="+ Photos">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="touchedAddPhotos:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="Sx6-3Q-RMD"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bLF-Be-1qj">
                                 <rect key="frame" x="20" y="246" width="80" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <state key="normal" title="Restart">
+                                <state key="normal" title="Reset">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="touchedReset:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="F1q-79-5ic"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XlX-dE-iBZ">
                                 <rect key="frame" x="220" y="246" width="80" height="30"/>
@@ -79,17 +85,23 @@
                                 <state key="normal" title="Submit">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="touchedSubmit:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="koR-MX-mV3"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <connections>
-                        <outlet property="phoneOne" destination="tud-35-Syz" id="Mpb-wE-zrO"/>
-                        <outlet property="phoneThree" destination="Ioi-it-Ha5" id="aJQ-Fs-GOJ"/>
-                        <outlet property="phoneTwo" destination="g6D-tN-ABc" id="fIn-iO-1Qh"/>
+                        <outlet property="btnAddPhotos" destination="a8W-Y3-pEV" id="NtO-vG-3ob"/>
+                        <outlet property="btnReset" destination="bLF-Be-1qj" id="XoI-65-tSs"/>
+                        <outlet property="btnSubmit" destination="XlX-dE-iBZ" id="GfR-ty-AZd"/>
                         <outlet property="pictureOne" destination="EXS-Bl-F2a" id="z0b-In-Kxk"/>
                         <outlet property="pictureThree" destination="t0W-Ig-2DG" id="UYt-Aw-eZb"/>
                         <outlet property="pictureTwo" destination="0UF-nd-u7R" id="CKB-eL-75B"/>
+                        <outlet property="txtPhoneOne" destination="tud-35-Syz" id="dbA-7E-2ph"/>
+                        <outlet property="txtPhoneThree" destination="Ioi-it-Ha5" id="6PE-4A-PAv"/>
+                        <outlet property="txtPhoneTwo" destination="g6D-tN-ABc" id="9rD-eQ-zVb"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>

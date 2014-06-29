@@ -35,20 +35,29 @@
     pictureTwoSelected   = NO;
     pictureThreeSelected = NO;
     
-    self.phoneOne.delegate = self;
-    self.phoneTwo.delegate = self;
-    self.phoneThree.delegate = self;
+    self.txtPhoneOne.delegate = self;
+    self.txtPhoneTwo.delegate = self;
+    self.txtPhoneThree.delegate = self;
 
     
-    UITapGestureRecognizer *singleTapOne = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tappedPictureOne)];
-    [self.pictureOne addGestureRecognizer:singleTapOne];
-    UITapGestureRecognizer *singleTapTwo = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tappedPictureTwo)];
-    [self.pictureTwo addGestureRecognizer:singleTapTwo];
-    UITapGestureRecognizer *singleTapThree = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tappedPictureThree)];
-    [self.pictureThree addGestureRecognizer:singleTapThree];
+//    UITapGestureRecognizer *singleTapOne = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tappedPictureOne)];
+//    [self.pictureOne addGestureRecognizer:singleTapOne];
+//    UITapGestureRecognizer *singleTapTwo = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tappedPictureTwo)];
+//    [self.pictureTwo addGestureRecognizer:singleTapTwo];
+//    UITapGestureRecognizer *singleTapThree = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tappedPictureThree)];
+//    [self.pictureThree addGestureRecognizer:singleTapThree];
 }
 
--(void)selectImage{
+-(void) resetUI {
+    self.txtPhoneOne.text = @"";
+    self.txtPhoneTwo.text = @"";
+    self.txtPhoneThree.text = @"";
+    
+    self.pictureOne.image = [UIImage imageNamed: @"camera.png"];
+    self.pictureTwo.image = [UIImage imageNamed: @"camera.png"];
+    self.pictureThree.image = [UIImage imageNamed: @"camera.png"];
+}
+-(void)selectImages{
     
     // Multiple Photo Lookup
     // https://github.com/B-Sides/ELCImagePickerController
@@ -68,63 +77,63 @@
 }
 
 
--(void)tappedPictureOne{
-    NSLog(@"single Tap on imageview One");
-    
-    if(pictureOneSelected){
-
-        self.pictureOne.image = [UIImage imageNamed: @"camera.png"];
-        pictureOneSelected = NO;
-        
-    } else {
-        
-        pictureOneSelected = YES;
-        currentPicture = self.pictureOne;
-        [self selectImage];
-        
-    }
-    
-}
--(void)tappedPictureTwo{
-    NSLog(@"single Tap on imageview Two");
-    
-    
-    if(pictureTwoSelected){
-        
-        self.pictureTwo.image = [UIImage imageNamed: @"camera.png"];
-        pictureTwoSelected = NO;
-        
-    } else {
-        
-        pictureTwoSelected = YES;
-        currentPicture = self.pictureTwo;
-        [self selectImage];
-    }
-
-
-    
-}
--(void)tappedPictureThree{
-    NSLog(@"single Tap on imageview Three");
-    
-    if(pictureThreeSelected){
-        
-        self.pictureThree.image = [UIImage imageNamed: @"camera.png"];
-        pictureThreeSelected = NO;
-        
-    } else {
-        
-        pictureThreeSelected = YES;
-        currentPicture = self.pictureThree;
-        [self selectImage];
-    }
-}
+//-(void)tappedPictureOne{
+//    NSLog(@"single Tap on imageview One");
+//    
+//    if(pictureOneSelected){
+//
+//        self.pictureOne.image = [UIImage imageNamed: @"camera.png"];
+//        pictureOneSelected = NO;
+//        
+//    } else {
+//        
+//        pictureOneSelected = YES;
+//        currentPicture = self.pictureOne;
+//        [self selectImage];
+//        
+//    }
+//    
+//}
+//-(void)tappedPictureTwo{
+//    NSLog(@"single Tap on imageview Two");
+//    
+//    
+//    if(pictureTwoSelected){
+//        
+//        self.pictureTwo.image = [UIImage imageNamed: @"camera.png"];
+//        pictureTwoSelected = NO;
+//        
+//    } else {
+//        
+//        pictureTwoSelected = YES;
+//        currentPicture = self.pictureTwo;
+//        [self selectImage];
+//    }
+//
+//
+//    
+//}
+//-(void)tappedPictureThree{
+//    NSLog(@"single Tap on imageview Three");
+//    
+//    if(pictureThreeSelected){
+//        
+//        self.pictureThree.image = [UIImage imageNamed: @"camera.png"];
+//        pictureThreeSelected = NO;
+//        
+//    } else {
+//        
+//        pictureThreeSelected = YES;
+//        currentPicture = self.pictureThree;
+//        [self selectImage];
+//    }
+//}
 
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
 {
-    [self.phoneOne   resignFirstResponder];
-    [self.phoneTwo   resignFirstResponder];
-    [self.phoneThree resignFirstResponder];
+    [self.txtPhoneOne   resignFirstResponder];
+    [self.txtPhoneTwo   resignFirstResponder];
+    [self.txtPhoneThree resignFirstResponder];
 }
 
 - (void)didReceiveMemoryWarning
@@ -155,6 +164,8 @@
     // https://github.com/felina/ios/blob/0e80ceb743447752487cb4f6e109b86f403e2c58/Felina/FECustomImagePickerViewController.m
     
     [self dismissViewControllerAnimated:YES completion:nil];
+    
+    [self resetUI];
     
     for (int i=0; i < info.count; i++) {
         UIImage *image = [info[i] objectForKey:UIImagePickerControllerOriginalImage];
@@ -195,4 +206,22 @@
     return [self validatePhone:[textField.text stringByReplacingCharactersInRange:range withString:string]];
 }
 
+/*
+ #pragma mark - TouchedButtons
+ 
+ */
+- (IBAction)touchedSubmit:(id)sender {
+    NSLog(@"Submitting Upload of Photos");
+
+}
+
+- (IBAction)touchedAddPhotos:(id)sender {
+    NSLog(@"Adding New Photos");
+    [self selectImages];
+}
+
+- (IBAction)touchedReset:(id)sender {
+    NSLog(@"Restarting UI");
+    [self resetUI];
+}
 @end
