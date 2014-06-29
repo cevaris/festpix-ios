@@ -178,15 +178,14 @@
     
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     NSDictionary *parameters = @{@"photo_session[phone_list]": [self getPhoneList]};
-//    NSURL *filePath = [NSURL fileURLWithPath:@"file://path/to/image.png"];
-    [manager POST:@"http://localhost:3000/photo_sessions" parameters:parameters constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
+    [manager POST:@"http://localhost:3000/photo_sessions.json" parameters:parameters constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
         
         for(int i=0;i<[images count];i++) {
             UIImage *eachImage  = [images objectAtIndex:i];
             NSData *imageData = UIImageJPEGRepresentation(eachImage,1.0);
             [formData appendPartWithFileData:imageData
-                                        name:[NSString stringWithFormat:@"photo_session[photos_attributes][%d]", i]
-                                    fileName:[NSString stringWithFormat:@"photo_session[photos_attributes][%d]", i]
+                                        name:[NSString stringWithFormat:@"photo_session[photos_attributes][%d][image]", i]
+                                    fileName:[NSString stringWithFormat:@"%d.jpg", i]
                                     mimeType:@"image/jpeg"];
 //            [formData appendPartWithFormData:imageData name:[NSString stringWithFormat:@"%d", i]];
 //            [formData appendPartWithFileData:imageData name:[NSString stringWithFormat:@"file%d",i ] fileName:[NSString stringWithFormat:@"abc%d.jpg",i ];
