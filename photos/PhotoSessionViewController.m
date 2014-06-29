@@ -39,13 +39,6 @@
     self.txtPhoneTwo.delegate = self;
     self.txtPhoneThree.delegate = self;
 
-    
-//    UITapGestureRecognizer *singleTapOne = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tappedPictureOne)];
-//    [self.pictureOne addGestureRecognizer:singleTapOne];
-//    UITapGestureRecognizer *singleTapTwo = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tappedPictureTwo)];
-//    [self.pictureTwo addGestureRecognizer:singleTapTwo];
-//    UITapGestureRecognizer *singleTapThree = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tappedPictureThree)];
-//    [self.pictureThree addGestureRecognizer:singleTapThree];
 }
 
 -(void) resetUI {
@@ -75,59 +68,6 @@
 
 
 }
-
-
-//-(void)tappedPictureOne{
-//    NSLog(@"single Tap on imageview One");
-//    
-//    if(pictureOneSelected){
-//
-//        self.pictureOne.image = [UIImage imageNamed: @"camera.png"];
-//        pictureOneSelected = NO;
-//        
-//    } else {
-//        
-//        pictureOneSelected = YES;
-//        currentPicture = self.pictureOne;
-//        [self selectImage];
-//        
-//    }
-//    
-//}
-//-(void)tappedPictureTwo{
-//    NSLog(@"single Tap on imageview Two");
-//    
-//    
-//    if(pictureTwoSelected){
-//        
-//        self.pictureTwo.image = [UIImage imageNamed: @"camera.png"];
-//        pictureTwoSelected = NO;
-//        
-//    } else {
-//        
-//        pictureTwoSelected = YES;
-//        currentPicture = self.pictureTwo;
-//        [self selectImage];
-//    }
-//
-//
-//    
-//}
-//-(void)tappedPictureThree{
-//    NSLog(@"single Tap on imageview Three");
-//    
-//    if(pictureThreeSelected){
-//        
-//        self.pictureThree.image = [UIImage imageNamed: @"camera.png"];
-//        pictureThreeSelected = NO;
-//        
-//    } else {
-//        
-//        pictureThreeSelected = YES;
-//        currentPicture = self.pictureThree;
-//        [self selectImage];
-//    }
-//}
 
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
 {
