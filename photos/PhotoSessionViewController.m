@@ -41,8 +41,8 @@
 }
 
 -(void) resetUI {
-//    self.txtPhoneOne.text = @"5594516126";
-    self.txtPhoneOne.text = @"";
+    self.txtPhoneOne.text = @"5594516126";
+//    self.txtPhoneOne.text = @"";
     self.txtPhoneTwo.text = @"";
     self.txtPhoneThree.text = @"";
     
@@ -184,15 +184,12 @@
     NSMutableArray *images = [[NSMutableArray alloc]init];
    
     if(self.pictureOne.image != defaultImg){
-        NSLog(@"Pic One set");
         [images addObject:self.pictureOne.image];
     }
     if(self.pictureTwo.image != defaultImg){
-        NSLog(@"Pic Two set");
         [images addObject:self.pictureTwo.image];
     }
     if(self.pictureThree.image != defaultImg){
-        NSLog(@"Pic Three set");
         [images addObject:self.pictureThree.image];
     }
     return [[NSArray alloc] initWithArray:images];
@@ -207,7 +204,10 @@
     
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     NSDictionary *parameters = @{@"photo_session[phone_list]": [self getPhoneList]};
-    [manager POST:@"http://localhost:3000/photo_sessions.json" parameters:parameters constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
+    //http://localhost:3000/photo_sessions.json
+    NSString *root_url = [[NSBundle mainBundle] objectForInfoDictionaryKey:@"RootURL"];
+    NSString *url = [NSString stringWithFormat:@"%@/photo_sessions.json", root_url];
+    [manager POST:url parameters:parameters constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
         
         for(int i=0;i<[images count];i++) {
             UIImage *eachImage  = [images objectAtIndex:i];
@@ -216,6 +216,8 @@
                                     fileName:[NSString stringWithFormat:@"%d.jpg", i]
                                     mimeType:@"image/jpeg"];
         }
+        [self resetUI];
+        
     } success:^(AFHTTPRequestOperation *operation, id responseObject) {
         NSLog(@"Success Path: %@", [responseObject valueForKey:@"path"]);
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
