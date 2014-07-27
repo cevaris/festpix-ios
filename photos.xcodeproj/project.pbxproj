@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		534F58081984BCA400CEB86F /* CoreData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 534F58061984BCA400CEB86F /* CoreData.xcdatamodeld */; };
+		534F580C1984BE0A00CEB86F /* PhotoSession.m in Sources */ = {isa = PBXBuildFile; fileRef = 534F580B1984BE0A00CEB86F /* PhotoSession.m */; };
 		5388B841195F27B000801D3E /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 5388B840195F27B000801D3E /* logo.png */; };
 		53A4B7E119527ADD007262F0 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 53A4B7E019527ADD007262F0 /* Foundation.framework */; };
 		53A4B7E319527ADD007262F0 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 53A4B7E219527ADD007262F0 /* CoreGraphics.framework */; };
@@ -40,6 +42,9 @@
 
 /* Begin PBXFileReference section */
 		39C9BFD1B8B849F28789A00A /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		534F58071984BCA400CEB86F /* CoreData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CoreData.xcdatamodel; sourceTree = "<group>"; };
+		534F580A1984BE0A00CEB86F /* PhotoSession.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoSession.h; sourceTree = "<group>"; };
+		534F580B1984BE0A00CEB86F /* PhotoSession.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoSession.m; sourceTree = "<group>"; };
 		5388B840195F27B000801D3E /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo.png; sourceTree = "<group>"; };
 		53A4B7DD19527ADD007262F0 /* photos.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = photos.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		53A4B7E019527ADD007262F0 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -99,6 +104,23 @@
 			name = common;
 			sourceTree = "<group>";
 		};
+		534F58051984BC8C00CEB86F /* schema */ = {
+			isa = PBXGroup;
+			children = (
+				534F58061984BCA400CEB86F /* CoreData.xcdatamodeld */,
+			);
+			name = schema;
+			sourceTree = "<group>";
+		};
+		534F58091984BDED00CEB86F /* models */ = {
+			isa = PBXGroup;
+			children = (
+				534F580A1984BE0A00CEB86F /* PhotoSession.h */,
+				534F580B1984BE0A00CEB86F /* PhotoSession.m */,
+			);
+			name = models;
+			sourceTree = "<group>";
+		};
 		53A4B7D419527ADD007262F0 = {
 			isa = PBXGroup;
 			children = (
@@ -134,6 +156,8 @@
 		53A4B7E619527ADD007262F0 /* photos */ = {
 			isa = PBXGroup;
 			children = (
+				534F58091984BDED00CEB86F /* models */,
+				534F58051984BC8C00CEB86F /* schema */,
 				53275BA61960743900D8C5E6 /* common */,
 				53A4B81B19527FEE007262F0 /* views */,
 				53A4B81819527EBC007262F0 /* images */,
@@ -336,6 +360,8 @@
 			files = (
 				53A4B81E19528021007262F0 /* PhotoSessionViewController.m in Sources */,
 				53A4B7FA19527ADD007262F0 /* ViewController.m in Sources */,
+				534F58081984BCA400CEB86F /* CoreData.xcdatamodeld in Sources */,
+				534F580C1984BE0A00CEB86F /* PhotoSession.m in Sources */,
 				53A4B7F119527ADD007262F0 /* AppDelegate.m in Sources */,
 				53A4B7ED19527ADD007262F0 /* main.m in Sources */,
 			);
@@ -578,6 +604,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		534F58061984BCA400CEB86F /* CoreData.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				534F58071984BCA400CEB86F /* CoreData.xcdatamodel */,
+			);
+			currentVersion = 534F58071984BCA400CEB86F /* CoreData.xcdatamodel */;
+			path = CoreData.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 53A4B7D519527ADD007262F0 /* Project object */;
 }
