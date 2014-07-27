@@ -103,12 +103,23 @@
     // How to retrieve images after picker
     // https://github.com/felina/ios/blob/0e80ceb743447752487cb4f6e109b86f403e2c58/Felina/FECustomImagePickerViewController.m
     
+    // Saving data to CoreData
+    // http://www.techotopia.com/index.php/An_iOS_7_Core_Data_Tutorial#Saving_Data_to_the_Persistent_Store_using_Core_Data
+    
     [self dismissViewControllerAnimated:YES completion:nil];
     
-//    [self resetUI];
     
     for (int i=0; i < info.count; i++) {
         UIImage *image = [info[i] objectForKey:UIImagePickerControllerOriginalImage];
+        
+        NSString *mediaType = [info[i] objectForKey:UIImagePickerControllerMediaType];
+        NSURL *assetURL = [info[i] objectForKey:UIImagePickerControllerReferenceURL];
+        NSLog(@"Media Type: %@", mediaType);
+        NSLog(@"AssetURL: %@", assetURL);
+        
+        // How to save Image for later use
+        // http://stackoverflow.com/questions/15564705/how-to-use-assetlibrary-url-to-image
+        
         switch (i) {
             case 0:
                 self.pictureOne.image = image;
