@@ -9,6 +9,8 @@
 #import "ViewController.h"
 #import "ELCImagePickerController.h"
 #import "AFNetworking.h"
+#import "PhotoSession.h"
+#import "CPhotoSession.h"
 
 @interface PhotoSessionViewController : ViewController <UINavigationControllerDelegate, ELCImagePickerControllerDelegate, UITextFieldDelegate> {
     @private UIImage *defaultImg;

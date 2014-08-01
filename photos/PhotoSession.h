@@ -19,4 +19,5 @@
 @property int       attemptNum;
 @property BOOL      isSuccess;
 
+- (NSString *)description;
 @end

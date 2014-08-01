@@ -11,7 +11,21 @@
 @implementation PhotoSession
 
 
+- (PhotoSession*) init {
+    if (self = [super init]) {
+        self.createdAt  = [NSDate date];
+        self.attemptNum = 0;
+        self.isSuccess  = NO;
+    }
+    return self;
+}
 
-
+- (NSString *)description {
+    return [NSString stringWithFormat: @"Photo: PhoneList=%@ Photos=[%@,%@,%@] CreatedAt=%@ AttemtNum=%d IsSuccess=%@",
+            [self phoneList],
+            [self photoOne], [self photoTwo], [self photoThree],
+            [self createdAt],
+            [self attemptNum], ([self isSuccess] ? @"YES" : @"NO")];
+}
 
 @end

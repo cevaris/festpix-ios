@@ -6,11 +6,11 @@
 //  Copyright (c) 2014 cevaris. All rights reserved.
 //
 
-#import "CPhotoSessions.h"
+#import "CPhotoSession.h"
 
-@implementation CPhotoSessions
+@implementation CPhotoSession
 
-- (NSArray*) loadAll {
++ (NSArray*) loadAll {
     AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
     
     NSManagedObjectContext *context = [appDelegate managedObjectContext];
@@ -34,7 +34,7 @@
     return data;
 }
 
-- (BOOL) save:(PhotoSession*)ps {
++ (BOOL) save:(PhotoSession*)ps {
     
     AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
     NSManagedObjectContext *context = [appDelegate managedObjectContext];
@@ -44,7 +44,7 @@
     mObject = [NSEntityDescription insertNewObjectForEntityForName:@"PhotoSessions"
                                             inManagedObjectContext:context];
     [ps setCreatedAt:  (NSDate*) [mObject valueForKey:@"createdAt"]];
-    [ps setPhoneList:  [mObject valueForKey:@"photoList"]];
+    [ps setPhoneList:  [mObject valueForKey:@"phoneList"]];
     [ps setPhotoOne:   [mObject valueForKey:@"photoOne"]];
     [ps setPhotoTwo:   [mObject valueForKey:@"photoTwo"]];
     [ps setPhotoThree: [mObject valueForKey:@"photoThree"]];

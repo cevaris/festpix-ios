@@ -109,6 +109,9 @@
     [self dismissViewControllerAnimated:YES completion:nil];
     
     
+    PhotoSession *ps = [[PhotoSession alloc] init];
+    [ps setPhoneList:[self getPhoneList]];
+    
     for (int i=0; i < info.count; i++) {
         UIImage *image = [info[i] objectForKey:UIImagePickerControllerOriginalImage];
         
@@ -119,21 +122,33 @@
         
         // How to save Image for later use
         // http://stackoverflow.com/questions/15564705/how-to-use-assetlibrary-url-to-image
+
+        // Selecting Images via Reference URL
+        // http://stackoverflow.com/questions/13512260/name-of-the-picked-image-xcode/13512415#13512415
+
         
         switch (i) {
             case 0:
                 self.pictureOne.image = image;
+                [ps setPhotoOne:[info[i] objectForKey:UIImagePickerControllerReferenceURL]];
                 break;
             case 1:
                 self.pictureTwo.image = image;
+                [ps setPhotoTwo:[info[i] objectForKey:UIImagePickerControllerReferenceURL]];
                 break;
             case 2:
                 self.pictureThree.image = image;
+                [ps setPhotoThree:[info[i] objectForKey:UIImagePickerControllerReferenceURL]];
                 break;
             default:
                 break;
         }
     }
+    
+    [CPhotoSession save:ps];
+    NSArray* photosessions = [CPhotoSession loadAll];
+    NSLog(@"Saved Logs %@", photosessions);
+    
 }
 - (void)elcImagePickerControllerDidCancel:(ELCImagePickerController *)picker {
     [self dismissViewControllerAnimated:YES completion:nil];
@@ -212,6 +227,8 @@
     
     NSArray *images = [self getPictureList];
     NSLog(@"Phones: %@", [self getPhoneList]);
+    
+    
     
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     NSDictionary *parameters = @{@"photo_session[phone_list]": [self getPhoneList]};
