@@ -13,7 +13,8 @@
 #import "CPhotoSession.h"
 
 @interface PhotoSessionViewController : ViewController <UINavigationControllerDelegate, ELCImagePickerControllerDelegate, UITextFieldDelegate> {
-    @private UIImage *defaultImg;
+    @private UIImage      *defaultImg;
+    @private PhotoSession *ps;
 }
 
 @property (weak, nonatomic) IBOutlet UITextField *txtPhoneOne;

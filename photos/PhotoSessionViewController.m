@@ -108,8 +108,7 @@
     
     [self dismissViewControllerAnimated:YES completion:nil];
     
-    
-    PhotoSession *ps = [[PhotoSession alloc] init];
+    ps = [[PhotoSession alloc] init];
     [ps setPhoneList:[self getPhoneList]];
     
     for (int i=0; i < info.count; i++) {
@@ -117,8 +116,8 @@
         
         NSString *mediaType = [info[i] objectForKey:UIImagePickerControllerMediaType];
         NSURL *assetURL = [info[i] objectForKey:UIImagePickerControllerReferenceURL];
-        NSLog(@"Media Type: %@", mediaType);
-        NSLog(@"AssetURL: %@", assetURL);
+//        NSLog(@"Media Type: %@", mediaType);
+//        NSLog(@"AssetURL: %@", assetURL);
         
         // How to save Image for later use
         // http://stackoverflow.com/questions/15564705/how-to-use-assetlibrary-url-to-image
@@ -145,9 +144,7 @@
         }
     }
     
-    [CPhotoSession save:ps];
-    NSArray* photosessions = [CPhotoSession loadAll];
-    NSLog(@"Saved Logs %@", photosessions);
+    NSLog(@"Collected Photos: %@", ps);
     
 }
 - (void)elcImagePickerControllerDidCancel:(ELCImagePickerController *)picker {
@@ -228,7 +225,9 @@
     NSArray *images = [self getPictureList];
     NSLog(@"Phones: %@", [self getPhoneList]);
     
-    
+    [CPhotoSession save:ps];
+    NSArray* photosessions = [CPhotoSession loadAll];
+    NSLog(@"Saved Logs %@", photosessions);
     
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     NSDictionary *parameters = @{@"photo_session[phone_list]": [self getPhoneList]};
@@ -245,9 +244,13 @@
                                     mimeType:@"image/jpeg"];
         }
         [self resetUI];
-        
     } success:^(AFHTTPRequestOperation *operation, id responseObject) {
         NSLog(@"Success Path: %@", [responseObject valueForKey:@"path"]);
+
+        [ps setIsSuccess:YES];
+        [CPhotoSession save:ps];
+        NSLog(@"Saved Logs %@", [CPhotoSession loadAll]);
+
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         NSLog(@"Error: %@", error);
     }];
