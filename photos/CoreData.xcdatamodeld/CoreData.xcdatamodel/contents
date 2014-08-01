@@ -2,12 +2,12 @@
 <model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="5064" systemVersion="13E28" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
     <entity name="PhotoSessions" syncable="YES">
         <attribute name="attemptNum" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="createdAt" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="isSuccess" optional="YES" attributeType="Boolean" syncable="YES"/>
         <attribute name="phoneList" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="photoOne" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="photoThree" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="photoTwo" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="timestamp" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <elements>
         <element name="PhotoSessions" positionX="-63" positionY="-18" width="128" height="150"/>
