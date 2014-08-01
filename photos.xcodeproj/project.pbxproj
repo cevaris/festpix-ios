@@ -28,6 +28,7 @@
 		53A4B81A19527EBC007262F0 /* camera.png in Resources */ = {isa = PBXBuildFile; fileRef = 53A4B81919527EBC007262F0 /* camera.png */; };
 		53A4B81E19528021007262F0 /* PhotoSessionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 53A4B81D19528021007262F0 /* PhotoSessionViewController.m */; };
 		53B1627C198B264E00AF3D34 /* CPhotoSession.m in Sources */ = {isa = PBXBuildFile; fileRef = 53B1627B198B264E00AF3D34 /* CPhotoSession.m */; };
+		53B1627F198B360A00AF3D34 /* PhotoSessionListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 53B1627E198B360A00AF3D34 /* PhotoSessionListViewController.m */; };
 		DA32894BF3034C979A2ACB38 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 39C9BFD1B8B849F28789A00A /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -72,6 +73,8 @@
 		53A4B81D19528021007262F0 /* PhotoSessionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoSessionViewController.m; sourceTree = "<group>"; };
 		53B1627A198B264E00AF3D34 /* CPhotoSession.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CPhotoSession.h; sourceTree = "<group>"; };
 		53B1627B198B264E00AF3D34 /* CPhotoSession.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CPhotoSession.m; sourceTree = "<group>"; };
+		53B1627D198B360A00AF3D34 /* PhotoSessionListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoSessionListViewController.h; sourceTree = "<group>"; };
+		53B1627E198B360A00AF3D34 /* PhotoSessionListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoSessionListViewController.m; sourceTree = "<group>"; };
 		94D2FFD43F8D4BD6900E84F5 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -100,13 +103,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		53275BA61960743900D8C5E6 /* common */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = common;
-			sourceTree = "<group>";
-		};
 		534F58051984BC8C00CEB86F /* schema */ = {
 			isa = PBXGroup;
 			children = (
@@ -162,7 +158,6 @@
 			children = (
 				534F58091984BDED00CEB86F /* models */,
 				534F58051984BC8C00CEB86F /* schema */,
-				53275BA61960743900D8C5E6 /* common */,
 				53A4B81B19527FEE007262F0 /* views */,
 				53A4B81819527EBC007262F0 /* images */,
 				53A4B7EF19527ADD007262F0 /* AppDelegate.h */,
@@ -220,6 +215,8 @@
 			children = (
 				53A4B81C19528021007262F0 /* PhotoSessionViewController.h */,
 				53A4B81D19528021007262F0 /* PhotoSessionViewController.m */,
+				53B1627D198B360A00AF3D34 /* PhotoSessionListViewController.h */,
+				53B1627E198B360A00AF3D34 /* PhotoSessionListViewController.m */,
 			);
 			name = views;
 			sourceTree = "<group>";
@@ -371,6 +368,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				53B1627F198B360A00AF3D34 /* PhotoSessionListViewController.m in Sources */,
 				53A4B81E19528021007262F0 /* PhotoSessionViewController.m in Sources */,
 				53A4B7FA19527ADD007262F0 /* ViewController.m in Sources */,
 				534F58081984BCA400CEB86F /* CoreData.xcdatamodeld in Sources */,
