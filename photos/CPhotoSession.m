@@ -11,6 +11,10 @@
 @implementation CPhotoSession
 
 + (NSArray*) loadAll {
+    
+//    http://stackoverflow.com/questions/12992129/core-data-issue-unable-to-store-nsnumber
+    
+    
 //    AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
 //    
 //    NSManagedObjectContext *context = [appDelegate managedObjectContext];
@@ -62,12 +66,20 @@
 }
 
 + (BOOL) deleteAll {
+
+    NSError *error = nil;
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
     AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
     NSManagedObjectContext *context = [appDelegate managedObjectContext];
-    for (NSManagedObject * obj in [CPhotoSession loadAll]) {
+    NSEntityDescription *entity = [NSEntityDescription
+                                   entityForName:@"PhotoSessions" inManagedObjectContext:context];
+    [fetchRequest setEntity:entity];
+    NSArray *fetchedObjects = [context executeFetchRequest:fetchRequest error:&error];
+    
+    for (NSManagedObject * obj in fetchedObjects) {
         [context deleteObject:obj];
     }
-    NSError *error = nil;
+    
     [context save:&error];
 
     if (error) {
@@ -98,7 +110,7 @@
     [mObject setValue:[ps photoOne]   forKey:@"photoOne"];
     [mObject setValue:[ps photoTwo]   forKey:@"photoTwo"];
     [mObject setValue:[ps photoThree] forKey:@"photoThree"];
-    [mObject setValue:[ps attemptNum] forKey:@"attemptNum"];
+    [mObject setValue:[NSNumber numberWithInt:[ps attemptNum]] forKey:@"attemptNum"];
     [mObject setValue:[NSNumber numberWithBool:[ps isSuccess]]  forKey:@"isSuccess"];
 
 //    [ps setCreatedAt:  (NSDate*) [mObject valueForKey:@"createdAt"]];

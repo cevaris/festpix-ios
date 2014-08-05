@@ -21,7 +21,7 @@
 }
 
 - (NSString *)description {
-    return [NSString stringWithFormat: @"Photo: PhoneList=%@ Photos=[%@,%@,%@] CreatedAt=%@ AttemtNum=%@ IsSuccess=%@",
+    return [NSString stringWithFormat: @"Photo: PhoneList=%@ Photos=[%@,%@,%@] CreatedAt=%@ AttemtNum=%d IsSuccess=%@",
             [self phoneList],
             [self photoOne], [self photoTwo], [self photoThree],
             [self createdAt],
