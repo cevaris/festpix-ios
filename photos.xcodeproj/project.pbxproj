@@ -11,6 +11,7 @@
 		534F580C1984BE0A00CEB86F /* PhotoSession.m in Sources */ = {isa = PBXBuildFile; fileRef = 534F580B1984BE0A00CEB86F /* PhotoSession.m */; };
 		5388B841195F27B000801D3E /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 5388B840195F27B000801D3E /* logo.png */; };
 		538F0CA21990824E0022B1A4 /* camera-30x30.png in Resources */ = {isa = PBXBuildFile; fileRef = 538F0CA11990824E0022B1A4 /* camera-30x30.png */; };
+		538F0CA519908AD50022B1A4 /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 538F0CA419908AD50022B1A4 /* SettingsViewController.m */; };
 		53A4B7E119527ADD007262F0 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 53A4B7E019527ADD007262F0 /* Foundation.framework */; };
 		53A4B7E319527ADD007262F0 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 53A4B7E219527ADD007262F0 /* CoreGraphics.framework */; };
 		53A4B7E519527ADD007262F0 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 53A4B7E419527ADD007262F0 /* UIKit.framework */; };
@@ -50,6 +51,8 @@
 		534F580B1984BE0A00CEB86F /* PhotoSession.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoSession.m; sourceTree = "<group>"; };
 		5388B840195F27B000801D3E /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo.png; sourceTree = "<group>"; };
 		538F0CA11990824E0022B1A4 /* camera-30x30.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "camera-30x30.png"; sourceTree = "<group>"; };
+		538F0CA319908AD50022B1A4 /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
+		538F0CA419908AD50022B1A4 /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
 		53A4B7DD19527ADD007262F0 /* photos.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = photos.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		53A4B7E019527ADD007262F0 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		53A4B7E219527ADD007262F0 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -220,6 +223,8 @@
 				53A4B81D19528021007262F0 /* PhotoSessionViewController.m */,
 				53B1627D198B360A00AF3D34 /* PhotoSessionTableViewController.h */,
 				53B1627E198B360A00AF3D34 /* PhotoSessionTableViewController.m */,
+				538F0CA319908AD50022B1A4 /* SettingsViewController.h */,
+				538F0CA419908AD50022B1A4 /* SettingsViewController.m */,
 			);
 			name = views;
 			sourceTree = "<group>";
@@ -375,6 +380,7 @@
 				53B1627F198B360A00AF3D34 /* PhotoSessionTableViewController.m in Sources */,
 				53A4B81E19528021007262F0 /* PhotoSessionViewController.m in Sources */,
 				53A4B7FA19527ADD007262F0 /* ViewController.m in Sources */,
+				538F0CA519908AD50022B1A4 /* SettingsViewController.m in Sources */,
 				534F58081984BCA400CEB86F /* CoreData.xcdatamodeld in Sources */,
 				534F580C1984BE0A00CEB86F /* PhotoSession.m in Sources */,
 				53B1627C198B264E00AF3D34 /* CPhotoSession.m in Sources */,

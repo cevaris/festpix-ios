@@ -16,7 +16,7 @@
 @property NSString  *photoOne;
 @property NSString  *photoTwo;
 @property NSString  *photoThree;
-@property int       attemptNum;
+@property NSNumber  *attemptNum;
 @property BOOL      isSuccess;
 
 - (NSString *)description;

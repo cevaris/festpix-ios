@@ -111,24 +111,24 @@
             </objects>
             <point key="canvasLocation" x="1518" y="-285"/>
         </scene>
-        <!--View Controller-->
+        <!--Photo Session Table View Controller-->
         <scene sceneID="daz-eC-r82">
             <objects>
-                <viewController id="oUv-kX-R9y" sceneMemberID="viewController">
+                <viewController id="oUv-kX-R9y" customClass="PhotoSessionTableViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="n4r-Gx-Zbb"/>
                         <viewControllerLayoutGuide type="bottom" id="thh-nJ-5sk"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="2HH-WJ-0QR" customClass="Photo">
+                    <view key="view" contentMode="scaleToFill" id="2HH-WJ-0QR">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="52" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="GIk-8b-3sK">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <rect key="frame" x="0.0" y="20" width="320" height="548"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" rowHeight="52" id="tPX-XI-DfP">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="PHOTO_SESSION_CELL" rowHeight="52" id="tPX-XI-DfP">
                                         <rect key="frame" x="0.0" y="22" width="320" height="52"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="tPX-XI-DfP" id="xYf-DW-1Wx">
@@ -162,8 +162,8 @@
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
-                                    <outlet property="dataSource" destination="2HH-WJ-0QR" id="mSn-zl-2oV"/>
-                                    <outlet property="delegate" destination="2HH-WJ-0QR" id="dyX-yM-gnX"/>
+                                    <outlet property="dataSource" destination="oUv-kX-R9y" id="KrM-QQ-1sq"/>
+                                    <outlet property="delegate" destination="oUv-kX-R9y" id="CNf-S1-bjg"/>
                                 </connections>
                             </tableView>
                         </subviews>
@@ -189,6 +189,7 @@
                     <connections>
                         <segue destination="vXZ-lx-hvc" kind="relationship" relationship="viewControllers" id="npy-eZ-TTH"/>
                         <segue destination="oUv-kX-R9y" kind="relationship" relationship="viewControllers" id="oPX-oZ-b4o"/>
+                        <segue destination="h6w-MH-PAb" kind="relationship" relationship="viewControllers" id="rK3-su-nEf"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lzp-zg-0L8" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -212,6 +213,50 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iHO-r4-arM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="854" y="647"/>
+        </scene>
+        <!--Settings View Controller-->
+        <scene sceneID="8zU-qm-4YT">
+            <objects>
+                <viewController id="h6w-MH-PAb" customClass="SettingsViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="zVp-FN-Kmp"/>
+                        <viewControllerLayoutGuide type="bottom" id="aFF-Px-Sni"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="qIn-z2-jvd">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Settings" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mbk-Ol-yyD">
+                                <rect key="frame" x="74" y="20" width="172" height="48"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="38"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FDN-Qr-1HY">
+                                <rect key="frame" x="42" y="239" width="80" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="Delete All">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="clickedDeleteAll:" destination="h6w-MH-PAb" eventType="touchUpInside" id="ctd-cQ-viT"/>
+                                    <action selector="touchedReset:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="khh-A9-pfA"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" systemItem="more" id="eTl-m7-ZS5"/>
+                    <connections>
+                        <outlet property="btnDeleteAll" destination="FDN-Qr-1HY" id="mc5-Ub-8Nn"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="QpX-o8-tRH" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1518" y="1144"/>
         </scene>
     </scenes>
     <resources>

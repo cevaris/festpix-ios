@@ -129,15 +129,15 @@
         switch (i) {
             case 0:
                 self.pictureOne.image = image;
-                [ps setPhotoOne:[info[i] objectForKey:UIImagePickerControllerReferenceURL]];
+                [ps setPhotoOne: [[info[i] objectForKey:UIImagePickerControllerReferenceURL] absoluteString ]];
                 break;
             case 1:
                 self.pictureTwo.image = image;
-                [ps setPhotoTwo:[info[i] objectForKey:UIImagePickerControllerReferenceURL]];
+                [ps setPhotoTwo: [[info[i] objectForKey:UIImagePickerControllerReferenceURL] absoluteString ]];
                 break;
             case 2:
                 self.pictureThree.image = image;
-                [ps setPhotoThree:[info[i] objectForKey:UIImagePickerControllerReferenceURL]];
+                [ps setPhotoThree: [[info[i] objectForKey:UIImagePickerControllerReferenceURL] absoluteString ]];
                 break;
             default:
                 break;

@@ -13,7 +13,12 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Initialize table data
+//    photoSessions = [CPhotoSession loadAll];
     photoSessions = [CPhotoSession loadAll];
+    for (NSManagedObject *ps in photoSessions) {
+        NSLog(@"PhotoSession: %@", ps);
+    }
+    photoSessions = [NSArray arrayWithObjects:@"Egg Benedict", @"Mushroom Risotto", nil];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {

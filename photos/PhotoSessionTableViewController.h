@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "CPhotoSession.h"
+#import "PhotoSession.h"
 
 @interface PhotoSessionTableViewController : UIViewController <UITableViewDelegate, UITableViewDataSource> {
     NSArray *photoSessions;

@@ -13,6 +13,7 @@
 @interface CPhotoSession : NSObject
 
 + (NSArray*)loadAll;
++ (BOOL)deleteAll;
 + (BOOL)save:(PhotoSession*)ps;
 
 @end
