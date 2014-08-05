@@ -10,6 +10,7 @@
 		534F58081984BCA400CEB86F /* CoreData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 534F58061984BCA400CEB86F /* CoreData.xcdatamodeld */; };
 		534F580C1984BE0A00CEB86F /* PhotoSession.m in Sources */ = {isa = PBXBuildFile; fileRef = 534F580B1984BE0A00CEB86F /* PhotoSession.m */; };
 		5388B841195F27B000801D3E /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 5388B840195F27B000801D3E /* logo.png */; };
+		538F0CA019907F380022B1A4 /* history.png in Resources */ = {isa = PBXBuildFile; fileRef = 538F0C9F19907F380022B1A4 /* history.png */; };
 		53A4B7E119527ADD007262F0 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 53A4B7E019527ADD007262F0 /* Foundation.framework */; };
 		53A4B7E319527ADD007262F0 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 53A4B7E219527ADD007262F0 /* CoreGraphics.framework */; };
 		53A4B7E519527ADD007262F0 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 53A4B7E419527ADD007262F0 /* UIKit.framework */; };
@@ -48,6 +49,7 @@
 		534F580A1984BE0A00CEB86F /* PhotoSession.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoSession.h; sourceTree = "<group>"; };
 		534F580B1984BE0A00CEB86F /* PhotoSession.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoSession.m; sourceTree = "<group>"; };
 		5388B840195F27B000801D3E /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo.png; sourceTree = "<group>"; };
+		538F0C9F19907F380022B1A4 /* history.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = history.png; sourceTree = "<group>"; };
 		53A4B7DD19527ADD007262F0 /* photos.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = photos.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		53A4B7E019527ADD007262F0 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		53A4B7E219527ADD007262F0 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -204,6 +206,7 @@
 		53A4B81819527EBC007262F0 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				538F0C9F19907F380022B1A4 /* history.png */,
 				5388B840195F27B000801D3E /* logo.png */,
 				53A4B81919527EBC007262F0 /* camera.png */,
 			);
@@ -317,6 +320,7 @@
 				53A4B7F419527ADD007262F0 /* Main_iPhone.storyboard in Resources */,
 				53A4B7EB19527ADD007262F0 /* InfoPlist.strings in Resources */,
 				53A4B81A19527EBC007262F0 /* camera.png in Resources */,
+				538F0CA019907F380022B1A4 /* history.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

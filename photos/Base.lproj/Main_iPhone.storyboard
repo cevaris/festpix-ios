@@ -35,7 +35,7 @@
                                 <textInputTraits key="textInputTraits" keyboardType="numberPad" enablesReturnKeyAutomatically="YES"/>
                             </textField>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="FestPix" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ojX-4h-E3a">
-                                <rect key="frame" x="33" y="35" width="242" height="48"/>
+                                <rect key="frame" x="74" y="33" width="172" height="48"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="38"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -89,9 +89,21 @@
                                     <action selector="touchedSubmit:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="koR-MX-mV3"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Eql-4r-5YI">
+                                <rect key="frame" x="263" y="38" width="37" height="37"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button" image="history.png">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="oUv-kX-R9y" kind="modal" id="GQ4-Id-sbD"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <gestureRecognizers/>
                     </view>
+                    <navigationItem key="navigationItem" id="tp1-jq-Yc1"/>
                     <connections>
                         <outlet property="btnAddPhotos" destination="a8W-Y3-pEV" id="NtO-vG-3ob"/>
                         <outlet property="btnReset" destination="bLF-Be-1qj" id="XoI-65-tSs"/>
@@ -106,6 +118,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="10" y="647"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="daz-eC-r82">
@@ -161,10 +174,11 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
+                    <navigationItem key="navigationItem" id="rgY-Tn-vQj"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1L4-oC-yjJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="631" y="-29"/>
+            <point key="canvasLocation" x="422" y="647"/>
         </scene>
         <!--Album Picker Controller-->
         <scene sceneID="816-MH-rfG">
@@ -182,11 +196,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iHO-r4-arM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="211" y="636"/>
+            <point key="canvasLocation" x="854" y="647"/>
         </scene>
     </scenes>
     <resources>
         <image name="camera.png" width="512" height="512"/>
+        <image name="history.png" width="256" height="256"/>
         <image name="logo.png" width="120" height="120"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
