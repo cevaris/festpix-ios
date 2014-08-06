@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		534F58081984BCA400CEB86F /* CoreData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 534F58061984BCA400CEB86F /* CoreData.xcdatamodeld */; };
 		534F580C1984BE0A00CEB86F /* PhotoSession.m in Sources */ = {isa = PBXBuildFile; fileRef = 534F580B1984BE0A00CEB86F /* PhotoSession.m */; };
-		5388B841195F27B000801D3E /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 5388B840195F27B000801D3E /* logo.png */; };
 		538F0CA21990824E0022B1A4 /* camera-30x30.png in Resources */ = {isa = PBXBuildFile; fileRef = 538F0CA11990824E0022B1A4 /* camera-30x30.png */; };
 		538F0CA519908AD50022B1A4 /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 538F0CA419908AD50022B1A4 /* SettingsViewController.m */; };
 		53A4B7E119527ADD007262F0 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 53A4B7E019527ADD007262F0 /* Foundation.framework */; };
@@ -29,6 +28,11 @@
 		53A4B80F19527ADD007262F0 /* photosTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 53A4B80E19527ADD007262F0 /* photosTests.m */; };
 		53A4B81A19527EBC007262F0 /* camera.png in Resources */ = {isa = PBXBuildFile; fileRef = 53A4B81919527EBC007262F0 /* camera.png */; };
 		53A4B81E19528021007262F0 /* PhotoSessionCreateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 53A4B81D19528021007262F0 /* PhotoSessionCreateViewController.m */; };
+		53A6688F1991D38F007A61D7 /* PhotoSessionTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 53A6688E1991D38F007A61D7 /* PhotoSessionTableViewCell.m */; };
+		53A668921991D9C6007A61D7 /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 53A668901991D96A007A61D7 /* AssetsLibrary.framework */; };
+		53A668941991DD02007A61D7 /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 53A668931991DD02007A61D7 /* logo.png */; };
+		53A668971991DDCF007A61D7 /* logo-60x60.png in Resources */ = {isa = PBXBuildFile; fileRef = 53A668951991DDCF007A61D7 /* logo-60x60.png */; };
+		53A668981991DDCF007A61D7 /* logo-120x120.png in Resources */ = {isa = PBXBuildFile; fileRef = 53A668961991DDCF007A61D7 /* logo-120x120.png */; };
 		53B1627C198B264E00AF3D34 /* PhotoSessionPersistence.m in Sources */ = {isa = PBXBuildFile; fileRef = 53B1627B198B264E00AF3D34 /* PhotoSessionPersistence.m */; };
 		53B1627F198B360A00AF3D34 /* PhotoSessionTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 53B1627E198B360A00AF3D34 /* PhotoSessionTableViewController.m */; };
 		DA32894BF3034C979A2ACB38 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 39C9BFD1B8B849F28789A00A /* libPods.a */; };
@@ -49,7 +53,6 @@
 		534F58071984BCA400CEB86F /* CoreData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CoreData.xcdatamodel; sourceTree = "<group>"; };
 		534F580A1984BE0A00CEB86F /* PhotoSession.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoSession.h; sourceTree = "<group>"; };
 		534F580B1984BE0A00CEB86F /* PhotoSession.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoSession.m; sourceTree = "<group>"; };
-		5388B840195F27B000801D3E /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo.png; sourceTree = "<group>"; };
 		538F0CA11990824E0022B1A4 /* camera-30x30.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "camera-30x30.png"; sourceTree = "<group>"; };
 		538F0CA319908AD50022B1A4 /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
 		538F0CA419908AD50022B1A4 /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
@@ -76,6 +79,12 @@
 		53A4B81919527EBC007262F0 /* camera.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = camera.png; sourceTree = "<group>"; };
 		53A4B81C19528021007262F0 /* PhotoSessionCreateViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoSessionCreateViewController.h; sourceTree = "<group>"; };
 		53A4B81D19528021007262F0 /* PhotoSessionCreateViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoSessionCreateViewController.m; sourceTree = "<group>"; };
+		53A6688D1991D38F007A61D7 /* PhotoSessionTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoSessionTableViewCell.h; sourceTree = "<group>"; };
+		53A6688E1991D38F007A61D7 /* PhotoSessionTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoSessionTableViewCell.m; sourceTree = "<group>"; };
+		53A668901991D96A007A61D7 /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
+		53A668931991DD02007A61D7 /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo.png; sourceTree = "<group>"; };
+		53A668951991DDCF007A61D7 /* logo-60x60.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "logo-60x60.png"; sourceTree = "<group>"; };
+		53A668961991DDCF007A61D7 /* logo-120x120.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "logo-120x120.png"; sourceTree = "<group>"; };
 		53B1627A198B264E00AF3D34 /* PhotoSessionPersistence.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoSessionPersistence.h; sourceTree = "<group>"; };
 		53B1627B198B264E00AF3D34 /* PhotoSessionPersistence.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoSessionPersistence.m; sourceTree = "<group>"; };
 		53B1627D198B360A00AF3D34 /* PhotoSessionTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoSessionTableViewController.h; sourceTree = "<group>"; };
@@ -88,6 +97,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				53A668921991D9C6007A61D7 /* AssetsLibrary.framework in Frameworks */,
 				53A4B7E319527ADD007262F0 /* CoreGraphics.framework in Frameworks */,
 				53A4B7E519527ADD007262F0 /* UIKit.framework in Frameworks */,
 				53A4B7E119527ADD007262F0 /* Foundation.framework in Frameworks */,
@@ -149,6 +159,7 @@
 		53A4B7DF19527ADD007262F0 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				53A668901991D96A007A61D7 /* AssetsLibrary.framework */,
 				53A4B7E019527ADD007262F0 /* Foundation.framework */,
 				53A4B7E219527ADD007262F0 /* CoreGraphics.framework */,
 				53A4B7E419527ADD007262F0 /* UIKit.framework */,
@@ -209,8 +220,10 @@
 		53A4B81819527EBC007262F0 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				53A668951991DDCF007A61D7 /* logo-60x60.png */,
+				53A668961991DDCF007A61D7 /* logo-120x120.png */,
+				53A668931991DD02007A61D7 /* logo.png */,
 				538F0CA11990824E0022B1A4 /* camera-30x30.png */,
-				5388B840195F27B000801D3E /* logo.png */,
 				53A4B81919527EBC007262F0 /* camera.png */,
 			);
 			path = images;
@@ -219,6 +232,7 @@
 		53A4B81B19527FEE007262F0 /* views */ = {
 			isa = PBXGroup;
 			children = (
+				53A6688C1991D369007A61D7 /* cells */,
 				53A4B81C19528021007262F0 /* PhotoSessionCreateViewController.h */,
 				53A4B81D19528021007262F0 /* PhotoSessionCreateViewController.m */,
 				53B1627D198B360A00AF3D34 /* PhotoSessionTableViewController.h */,
@@ -227,6 +241,15 @@
 				538F0CA419908AD50022B1A4 /* SettingsViewController.m */,
 			);
 			name = views;
+			sourceTree = "<group>";
+		};
+		53A6688C1991D369007A61D7 /* cells */ = {
+			isa = PBXGroup;
+			children = (
+				53A6688D1991D38F007A61D7 /* PhotoSessionTableViewCell.h */,
+				53A6688E1991D38F007A61D7 /* PhotoSessionTableViewCell.m */,
+			);
+			name = cells;
 			sourceTree = "<group>";
 		};
 		53B16279198B231F00AF3D34 /* persistance */ = {
@@ -321,10 +344,12 @@
 			files = (
 				53A4B7F719527ADD007262F0 /* Main_iPad.storyboard in Resources */,
 				53A4B7FC19527ADD007262F0 /* Images.xcassets in Resources */,
-				5388B841195F27B000801D3E /* logo.png in Resources */,
 				53A4B7F419527ADD007262F0 /* Main_iPhone.storyboard in Resources */,
+				53A668971991DDCF007A61D7 /* logo-60x60.png in Resources */,
 				53A4B7EB19527ADD007262F0 /* InfoPlist.strings in Resources */,
+				53A668941991DD02007A61D7 /* logo.png in Resources */,
 				53A4B81A19527EBC007262F0 /* camera.png in Resources */,
+				53A668981991DDCF007A61D7 /* logo-120x120.png in Resources */,
 				538F0CA21990824E0022B1A4 /* camera-30x30.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -384,6 +409,7 @@
 				534F58081984BCA400CEB86F /* CoreData.xcdatamodeld in Sources */,
 				534F580C1984BE0A00CEB86F /* PhotoSession.m in Sources */,
 				53B1627C198B264E00AF3D34 /* PhotoSessionPersistence.m in Sources */,
+				53A6688F1991D38F007A61D7 /* PhotoSessionTableViewCell.m in Sources */,
 				53A4B7F119527ADD007262F0 /* AppDelegate.m in Sources */,
 				53A4B7ED19527ADD007262F0 /* main.m in Sources */,
 			);

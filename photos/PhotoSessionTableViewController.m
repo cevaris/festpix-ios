@@ -18,7 +18,7 @@
     for (NSManagedObject *ps in photoSessions) {
         NSLog(@"PhotoSession: %@", ps);
     }
-    photoSessions = [NSArray arrayWithObjects:@"Egg Benedict", @"Mushroom Risotto", nil];
+//    photoSessions = [NSArray arrayWithObjects:@"Egg Benedict", @"Mushroom Risotto", nil];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -26,15 +26,34 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    static NSString *simpleTableIdentifier = @"SimpleTableCell";
+    static NSString *simpleTableIdentifier = @"PhotoSessionTableViewCell";
     
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:simpleTableIdentifier];
+    PhotoSessionTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:simpleTableIdentifier];
+    PhotoSession *ps = [photoSessions objectAtIndex:indexPath.row];
     
     if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:simpleTableIdentifier];
+        cell = [[PhotoSessionTableViewCell alloc] init];
     }
     
-    cell.textLabel.text = [photoSessions objectAtIndex:indexPath.row];
+    NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
+    [dateFormat setDateFormat:@"E MMM, dd"];
+    
+    NSDateFormatter *timeFormat = [[NSDateFormatter alloc] init];
+    [timeFormat setDateFormat:@"hh:mm:ss a"];
+    
+    NSString *theDate = [dateFormat stringFromDate:[ps createdAt]];
+    NSString *theTime = [timeFormat stringFromDate:[ps createdAt]];
+
+    cell.lblCreatedAt.text = [NSString stringWithFormat:@"%@ - %@", theTime, theDate];
+    cell.lblIsSuccess.text = [ps isSuccess] ? @"Yes" : @"No";
+    
+    ALAssetsLibrary *library = [[ALAssetsLibrary alloc] init];
+    [library assetForURL:[NSURL URLWithString:[[ps photoOne] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]] resultBlock:^(ALAsset *asset) {
+        cell.imageSample.image = [UIImage imageWithCGImage:[[asset defaultRepresentation] fullResolutionImage]];
+    } failureBlock:^(NSError *error) {
+        NSLog(@"error : %@", error);
+    }];
+    
     return cell;
 }
 
