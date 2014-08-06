@@ -14,7 +14,7 @@
     [super viewDidLoad];
     // Initialize table data
 //    photoSessions = [CPhotoSession loadAll];
-    photoSessions = [CPhotoSession loadAll];
+    photoSessions = [PhotoSessionPersistence loadAll];
     for (NSManagedObject *ps in photoSessions) {
         NSLog(@"PhotoSession: %@", ps);
     }

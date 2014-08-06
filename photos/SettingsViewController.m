@@ -64,9 +64,9 @@
     switch (buttonIndex) {
         case 1:
             NSLog(@"Clicked Yes");
-            NSLog(@"%@", [CPhotoSession loadAll]);
-            [CPhotoSession deleteAll];
-            NSLog(@"%@", [CPhotoSession loadAll]);
+            NSLog(@"%@", [PhotoSessionPersistence loadAll]);
+            [PhotoSessionPersistence deleteAll];
+            NSLog(@"%@", [PhotoSessionPersistence loadAll]);
             
             break;
             

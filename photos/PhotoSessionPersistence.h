@@ -10,7 +10,7 @@
 #import "AppDelegate.h"
 #import "PhotoSession.h"
 
-@interface CPhotoSession : NSObject
+@interface PhotoSessionPersistence : NSObject
 
 + (NSArray*)loadAll;
 + (BOOL)deleteAll;

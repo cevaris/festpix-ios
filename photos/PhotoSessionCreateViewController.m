@@ -6,15 +6,15 @@
 //  Copyright (c) 2014 cevaris. All rights reserved.
 //
 
-#import "PhotoSessionViewController.h"
+#import "PhotoSessionCreateViewController.h"
 #import "ELCImagePickerController.h"
 #import "ELCAlbumPickerController.h"
 
-@interface PhotoSessionViewController ()
+@interface PhotoSessionCreateViewController ()
 
 @end
 
-@implementation PhotoSessionViewController
+@implementation PhotoSessionCreateViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -225,8 +225,8 @@
     NSArray *images = [self getPictureList];
     NSLog(@"Phones: %@", [self getPhoneList]);
     
-    [CPhotoSession save:ps];
-    NSArray* photosessions = [CPhotoSession loadAll];
+    [PhotoSessionPersistence save:ps];
+    NSArray* photosessions = [PhotoSessionPersistence loadAll];
     NSLog(@"Saved Logs %@", photosessions);
     
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
@@ -248,8 +248,8 @@
         NSLog(@"Success Path: %@", [responseObject valueForKey:@"path"]);
 
         [ps setIsSuccess:YES];
-        [CPhotoSession save:ps];
-        NSLog(@"Saved Logs %@", [CPhotoSession loadAll]);
+        [PhotoSessionPersistence save:ps];
+        NSLog(@"Saved Logs %@", [PhotoSessionPersistence loadAll]);
 
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         NSLog(@"Error: %@", error);

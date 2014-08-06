@@ -6,9 +6,9 @@
 //  Copyright (c) 2014 cevaris. All rights reserved.
 //
 
-#import "CPhotoSession.h"
+#import "PhotoSessionPersistence.h"
 
-@implementation CPhotoSession
+@implementation PhotoSessionPersistence
 
 + (NSArray*) loadAll {
     

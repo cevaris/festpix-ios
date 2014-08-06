@@ -7,7 +7,7 @@
 //
 
 #import "ViewController.h"
-#import "CPhotoSession.h"
+#import "PhotoSessionPersistence.h"
 
 @interface SettingsViewController : ViewController
 
