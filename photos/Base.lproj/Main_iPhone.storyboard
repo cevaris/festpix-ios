@@ -176,6 +176,9 @@
                     </view>
                     <tabBarItem key="tabBarItem" systemItem="recents" id="KDr-Xb-3lv"/>
                     <navigationItem key="navigationItem" id="rgY-Tn-vQj"/>
+                    <connections>
+                        <outlet property="tableView" destination="GIk-8b-3sK" id="NAB-ul-oHM"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1L4-oC-yjJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -267,7 +270,7 @@
     <resources>
         <image name="camera-30x30.png" width="30" height="30"/>
         <image name="camera.png" width="512" height="512"/>
-        <image name="logo.png" width="120" height="120"/>
+        <image name="logo.png" width="128" height="128"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>

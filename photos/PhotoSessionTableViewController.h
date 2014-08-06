@@ -16,4 +16,5 @@
     NSArray *photoSessions;
 }
 
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
 @end

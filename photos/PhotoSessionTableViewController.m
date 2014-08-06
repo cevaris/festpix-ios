@@ -10,15 +10,20 @@
 
 @implementation PhotoSessionTableViewController
 
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Initialize table data
-//    photoSessions = [CPhotoSession loadAll];
     photoSessions = [PhotoSessionPersistence loadAll];
-    for (NSManagedObject *ps in photoSessions) {
-        NSLog(@"PhotoSession: %@", ps);
-    }
+//    for (NSManagedObject *ps in photoSessions) {
+//        NSLog(@"PhotoSession: %@", ps);
+//    }
+    
 //    photoSessions = [NSArray arrayWithObjects:@"Egg Benedict", @"Mushroom Risotto", nil];
+}
+- (void)viewDidAppear:(BOOL)animated {
+    photoSessions = [PhotoSessionPersistence loadAll];
+    [self.tableView reloadData];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
