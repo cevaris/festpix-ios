@@ -50,6 +50,7 @@
     ALAssetsLibrary *library = [[ALAssetsLibrary alloc] init];
     [library assetForURL:[NSURL URLWithString:[[ps photoOne] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]] resultBlock:^(ALAsset *asset) {
         cell.imageSample.image = [UIImage imageWithCGImage:[[asset defaultRepresentation] fullResolutionImage]];
+        cell.imageSample.contentMode = UIViewContentModeScaleAspectFit;
     } failureBlock:^(NSError *error) {
         NSLog(@"error : %@", error);
     }];

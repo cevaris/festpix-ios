@@ -129,14 +129,17 @@
         switch (i) {
             case 0:
                 self.pictureOne.image = image;
+                self.pictureOne.contentMode = UIViewContentModeScaleAspectFit;
                 [ps setPhotoOne: [[info[i] objectForKey:UIImagePickerControllerReferenceURL] absoluteString ]];
                 break;
             case 1:
                 self.pictureTwo.image = image;
+                self.pictureTwo.contentMode = UIViewContentModeScaleAspectFit;
                 [ps setPhotoTwo: [[info[i] objectForKey:UIImagePickerControllerReferenceURL] absoluteString ]];
                 break;
             case 2:
                 self.pictureThree.image = image;
+                self.pictureThree.contentMode = UIViewContentModeScaleAspectFit;
                 [ps setPhotoThree: [[info[i] objectForKey:UIImagePickerControllerReferenceURL] absoluteString ]];
                 break;
             default:
