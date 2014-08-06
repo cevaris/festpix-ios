@@ -228,7 +228,7 @@
     NSArray *images = [self getPictureList];
     NSLog(@"Phones: %@", [self getPhoneList]);
     
-    [PhotoSessionPersistence save:ps];
+    
     NSArray* photosessions = [PhotoSessionPersistence loadAll];
     NSLog(@"Saved Logs %@", photosessions);
     
@@ -255,7 +255,9 @@
         NSLog(@"Saved Logs %@", [PhotoSessionPersistence loadAll]);
 
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+
         NSLog(@"Error: %@", error);
+        [PhotoSessionPersistence save:ps];
     }];
     
 }
