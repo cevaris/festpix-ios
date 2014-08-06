@@ -50,17 +50,14 @@
         NSLog(@"PhotoSesion: %@", info);
         PhotoSession *ps = [[PhotoSession alloc] init];
         [ps setCreatedAt:(NSDate *) [info valueForKey:@"createdAt"]];
-        [ps setAttemptNum:[info valueForKey:@"attemptNum"]];
-        [ps setPhoneList:[info  valueForKey:@"phoneList"]];
+        [ps setAttemptNum:(int)[info valueForKey:@"attemptNum"]];
+        [ps setPhoneList: [info  valueForKey:@"phoneList"]];
         [ps setIsSuccess:[info  valueForKey:@"isSuccess"]];
-//        ps set:[info valueForKey:@""];
-//        ps set:[info valueForKey:@""];
-//        ps set:[info valueForKey:@""];
-        
+        [ps setPhotoOne:[info valueForKey:@"photoOne"]];
+        [ps setPhotoTwo:[info valueForKey:@"photoTwo"]];
+        [ps setPhotoThree:[info valueForKey:@"photoThree"]];
+      
         [results addObject:ps];
-//        NSLog(@"CreatedAt: %@", [info valueForKey:@"createdAt"]);
-//        NSManagedObject *details = [info valueForKey:@"details"];
-//        NSLog(@"phoneList: %@", [details valueForKey:@"phoneList"]);
     }
     return results;
 }

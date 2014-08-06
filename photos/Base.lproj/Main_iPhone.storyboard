@@ -180,7 +180,7 @@
         <scene sceneID="EWm-rH-bLx">
             <objects>
                 <tabBarController definesPresentationContext="YES" id="bQH-KZ-xHD" sceneMemberID="viewController">
-                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <nil key="simulatedBottomBarMetrics"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="jm2-ys-wSv">
                         <rect key="frame" x="129" y="330" width="163" height="49"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
