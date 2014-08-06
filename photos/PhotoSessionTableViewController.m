@@ -30,6 +30,19 @@
     return [photoSessions count];
 }
 
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    NSLog(@"prepareForSegue: %@", segue.identifier  );
+    if ([[segue identifier] isEqualToString:@"PhotoSessionCellSegue"]){
+        NSIndexPath *selectedRowIndex = [self.tableView indexPathForSelectedRow];
+        PhotoSessionViewController *detailViewController = [segue destinationViewController];
+        detailViewController.ps = [photoSessions objectAtIndex:selectedRowIndex.row];
+    }
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    [self performSegueWithIdentifier:@"PhotoSessionCellSegue" sender:self];
+}
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     static NSString *simpleTableIdentifier = @"PhotoSessionTableViewCell";
     

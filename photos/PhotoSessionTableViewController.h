@@ -10,6 +10,7 @@
 #import "PhotoSessionTableViewCell.h"
 #import "PhotoSessionPersistence.h"
 #import "PhotoSession.h"
+#import "PhotoSessionViewController.h"
 #import <AssetsLibrary/AssetsLibrary.h>
 
 @interface PhotoSessionTableViewController : UIViewController <UITableViewDelegate, UITableViewDataSource> {
