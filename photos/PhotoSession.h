@@ -11,6 +11,7 @@
 @interface PhotoSession : NSObject
 
 
+@property NSString  *url;
 @property NSDate    *createdAt;
 @property NSString  *phoneList;
 @property NSString  *photoOne;

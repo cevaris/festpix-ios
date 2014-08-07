@@ -16,16 +16,18 @@
         self.createdAt  = [NSDate date];
         self.attemptNum = 0;
         self.isSuccess  = NO;
+        self.url        = nil;
     }
     return self;
 }
 
 - (NSString *)description {
-    return [NSString stringWithFormat: @"Photo: PhoneList=%@ Photos=[%@,%@,%@] CreatedAt=%@ AttemtNum=%d IsSuccess=%@",
+    return [NSString stringWithFormat: @"Photo: PhoneList=%@ Photos=[%@,%@,%@] CreatedAt=%@ AttemtNum=%d IsSuccess=%@ Url=%@",
             [self phoneList],
             [self photoOne], [self photoTwo], [self photoThree],
             [self createdAt],
-            [self attemptNum], ([self isSuccess] ? @"YES" : @"NO")];
+            [self attemptNum], ([self isSuccess] ? @"YES" : @"NO"),
+            [self url]];
 }
 
 @end

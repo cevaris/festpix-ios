@@ -51,6 +51,7 @@
         PhotoSession *ps = [[PhotoSession alloc] init];
         [ps setCreatedAt:(NSDate *) [info valueForKey:@"createdAt"]];
         [ps setAttemptNum:(int)[info valueForKey:@"attemptNum"]];
+        [ps setUrl:[info valueForKey:@"url"]];
         [ps setPhoneList: [info  valueForKey:@"phoneList"]];
         [ps setIsSuccess:[info  valueForKey:@"isSuccess"]];
         [ps setPhotoOne:[info valueForKey:@"photoOne"]];
@@ -102,6 +103,7 @@
     
     NSLog(@"Saving PhotoSession: %@", ps);
     
+    [mObject setValue:[ps url]  forKey:@"url"];
     [mObject setValue:[ps createdAt]  forKey:@"createdAt"];
     [mObject setValue:[ps phoneList]  forKey:@"phoneList"];
     [mObject setValue:[ps photoOne]   forKey:@"photoOne"];

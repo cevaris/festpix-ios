@@ -114,8 +114,8 @@
     for (int i=0; i < info.count; i++) {
         UIImage *image = [info[i] objectForKey:UIImagePickerControllerOriginalImage];
         
-        NSString *mediaType = [info[i] objectForKey:UIImagePickerControllerMediaType];
-        NSURL *assetURL = [info[i] objectForKey:UIImagePickerControllerReferenceURL];
+//        NSString *mediaType = [info[i] objectForKey:UIImagePickerControllerMediaType];
+//        NSURL *assetURL = [info[i] objectForKey:UIImagePickerControllerReferenceURL];
 //        NSLog(@"Media Type: %@", mediaType);
 //        NSLog(@"AssetURL: %@", assetURL);
         
@@ -251,12 +251,14 @@
         NSLog(@"Success Path: %@", [responseObject valueForKey:@"path"]);
 
         [ps setIsSuccess:YES];
+        [ps setUrl:[responseObject valueForKey:@"path"]];
         [PhotoSessionPersistence save:ps];
         NSLog(@"Saved Logs %@", [PhotoSessionPersistence loadAll]);
 
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
 
         NSLog(@"Error: %@", error);
+        [ps setIsSuccess:NO];
         [PhotoSessionPersistence save:ps];
     }];
     
