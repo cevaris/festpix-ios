@@ -49,11 +49,12 @@
     for (NSManagedObject *info in fetchedObjects) {
         NSLog(@"PhotoSesion: %@", info);
         PhotoSession *ps = [[PhotoSession alloc] init];
+    
         [ps setCreatedAt:(NSDate *) [info valueForKey:@"createdAt"]];
         [ps setAttemptNum:(int)[info valueForKey:@"attemptNum"]];
         [ps setUrl:[info valueForKey:@"url"]];
         [ps setPhoneList: [info  valueForKey:@"phoneList"]];
-        [ps setIsSuccess:[info  valueForKey:@"isSuccess"]];
+        [ps setIsSuccess:[(NSNumber*)[info  valueForKey:@"isSuccess"] boolValue]];
         [ps setPhotoOne:[info valueForKey:@"photoOne"]];
         [ps setPhotoTwo:[info valueForKey:@"photoTwo"]];
         [ps setPhotoThree:[info valueForKey:@"photoThree"]];
