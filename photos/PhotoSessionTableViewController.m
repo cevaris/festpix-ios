@@ -20,8 +20,18 @@
 //    }
     
 //    photoSessions = [NSArray arrayWithObjects:@"Egg Benedict", @"Mushroom Risotto", nil];
+    [NSTimer scheduledTimerWithTimeInterval: 20.0
+                                     target: self
+                                   selector: @selector(fetchDisplayData:) userInfo: nil repeats: YES];
 }
 - (void)viewDidAppear:(BOOL)animated {
+    [self fetchDisplayData:nil];
+//    photoSessions = [PhotoSessionPersistence loadAll];
+//    [self.tableView reloadData];
+}
+
+-(void) fetchDisplayData:(NSTimer*) t {
+    NSLog(@"Reloading Data");
     photoSessions = [PhotoSessionPersistence loadAll];
     [self.tableView reloadData];
 }
