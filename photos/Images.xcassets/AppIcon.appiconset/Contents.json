@@ -53,6 +53,11 @@
       "idiom" : "mac",
       "filename" : "logo-120x120-3.png",
       "scale" : "1x"
+    },
+    {
+      "idiom" : "mac",
+      "size" : "128x128",
+      "scale" : "2x"
     }
   ],
   "info" : {

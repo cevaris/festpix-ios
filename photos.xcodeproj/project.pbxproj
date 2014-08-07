@@ -57,7 +57,7 @@
 		538F0CA11990824E0022B1A4 /* camera-30x30.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "camera-30x30.png"; sourceTree = "<group>"; };
 		538F0CA319908AD50022B1A4 /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
 		538F0CA419908AD50022B1A4 /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
-		53A4B7DD19527ADD007262F0 /* photos.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = photos.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		53A4B7DD19527ADD007262F0 /* FestPix.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FestPix.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		53A4B7E019527ADD007262F0 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		53A4B7E219527ADD007262F0 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		53A4B7E419527ADD007262F0 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -153,7 +153,7 @@
 		53A4B7DE19527ADD007262F0 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				53A4B7DD19527ADD007262F0 /* photos.app */,
+				53A4B7DD19527ADD007262F0 /* FestPix.app */,
 				53A4B80119527ADD007262F0 /* photosTests.xctest */,
 			);
 			name = Products;
@@ -285,7 +285,7 @@
 			);
 			name = photos;
 			productName = photos;
-			productReference = 53A4B7DD19527ADD007262F0 /* photos.app */;
+			productReference = 53A4B7DD19527ADD007262F0 /* FestPix.app */;
 			productType = "com.apple.product-type.application";
 		};
 		53A4B80019527ADD007262F0 /* photosTests */ = {
@@ -561,7 +561,7 @@
 				INFOPLIST_FILE = "photos/photos-Info.plist";
 				LOCAL = 1;
 				PRODUCTION = 0;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = FestPix;
 				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
@@ -581,7 +581,7 @@
 				INFOPLIST_FILE = "photos/photos-Info.plist";
 				LOCAL = 1;
 				PRODUCTION = 0;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = FestPix;
 				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
