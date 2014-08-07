@@ -18,22 +18,28 @@
 //    for (NSManagedObject *ps in photoSessions) {
 //        NSLog(@"PhotoSession: %@", ps);
 //    }
+
+
+//    [NSTimer scheduledTimerWithTimeInterval: 20.0
+//                                     target: self
+//                                   selector: @selector(fetchDisplayData:) userInfo: nil repeats: YES];
     
-//    photoSessions = [NSArray arrayWithObjects:@"Egg Benedict", @"Mushroom Risotto", nil];
-    [NSTimer scheduledTimerWithTimeInterval: 20.0
-                                     target: self
-                                   selector: @selector(fetchDisplayData:) userInfo: nil repeats: YES];
+    refreshControl = [[UIRefreshControl alloc]init];
+    [self.tableView addSubview:refreshControl];
+    [refreshControl addTarget:self action:@selector(fetchDisplayData) forControlEvents:UIControlEventValueChanged];
 }
 - (void)viewDidAppear:(BOOL)animated {
-    [self fetchDisplayData:nil];
+    [self fetchDisplayData];
 //    photoSessions = [PhotoSessionPersistence loadAll];
 //    [self.tableView reloadData];
 }
 
--(void) fetchDisplayData:(NSTimer*) t {
+//-(void) fetchDisplayData:(NSTimer*) t {
+-(void) fetchDisplayData {
     NSLog(@"Reloading Data");
     photoSessions = [PhotoSessionPersistence loadAll];
     [self.tableView reloadData];
+    [refreshControl endRefreshing];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {

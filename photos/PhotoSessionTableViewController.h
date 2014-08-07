@@ -15,7 +15,11 @@
 
 @interface PhotoSessionTableViewController : UIViewController <UITableViewDelegate, UITableViewDataSource> {
     NSArray *photoSessions;
+    UIRefreshControl* refreshControl;
+    
 }
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
+//@property (weak, nonatomic) IBOutlet UIRefreshControl* refreshControl;
+//@property (weak, nonatomic) UIRefreshControl* refreshControl;
 @end
