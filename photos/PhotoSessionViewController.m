@@ -41,6 +41,14 @@
         self.lblCreatedAt.text = [NSString stringWithFormat:@"%@ - %@", theTime, theDate];
         self.lblIsSuccess.text = [self.ps isSuccess] ? @"Yes" : @"No";
         
+        if ([self.ps url]){
+            [self.btnUrl setHidden:NO];
+            [self.btnUrl setContentHorizontalAlignment:UIControlContentHorizontalAlignmentLeft];
+            [self.btnUrl setTitle:[NSString stringWithFormat:@"http://%@", [self.ps url]] forState:UIControlStateNormal];
+        } else {
+            [self.btnUrl setHidden:YES];
+        }
+        
         ALAssetsLibrary *library = [[ALAssetsLibrary alloc] init];
         if ([self.ps photoOne]) {
             [library assetForURL:[NSURL URLWithString:[[self.ps photoOne] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]] resultBlock:^(ALAsset *asset) {
@@ -88,4 +96,11 @@
 }
 */
 
+- (IBAction)clickUrl:(id)sender {
+    NSLog(@"Opening URL: %@", [self.ps url]);
+    if (self.ps  && [self.ps url]) {
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://%@", [self.ps url]]]];
+    }
+    
+}
 @end

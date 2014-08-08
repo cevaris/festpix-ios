@@ -14,12 +14,15 @@
     
 @property (nonatomic, strong) PhotoSession *ps;
 
+@property (weak, nonatomic) IBOutlet UIButton *btnUrl;
 @property (weak, nonatomic) IBOutlet UILabel *lblCreatedAt;
 @property (weak, nonatomic) IBOutlet UILabel *lblIsSuccess;
 @property (weak, nonatomic) IBOutlet UIImageView *picutreOne;
 @property (weak, nonatomic) IBOutlet UIImageView *picutreTwo;
 @property (weak, nonatomic) IBOutlet UIImageView *picutreThree;
 
+
+- (IBAction)clickUrl:(id)sender;
 
 
 @end

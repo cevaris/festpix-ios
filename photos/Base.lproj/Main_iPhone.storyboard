@@ -227,11 +227,21 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RGz-H2-xUN">
+                                <rect key="frame" x="20" y="129" width="280" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="15"/>
+                                <state key="normal" title="url"/>
+                                <connections>
+                                    <action selector="clickUrl:" destination="WhT-TH-Qp2" eventType="touchUpInside" id="Mo2-Tu-noo"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="wLn-fX-uYf"/>
                     <connections>
+                        <outlet property="btnUrl" destination="RGz-H2-xUN" id="KXe-3L-uzf"/>
                         <outlet property="lblCreatedAt" destination="RfE-Tg-KLy" id="gw8-y7-6Lr"/>
                         <outlet property="lblIsSuccess" destination="xJa-z2-bsP" id="Sxe-xg-bd4"/>
                         <outlet property="picutreOne" destination="1Tp-ZO-ZR9" id="LSy-Of-hgT"/>
