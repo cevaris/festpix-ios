@@ -51,6 +51,7 @@
     if ([[segue identifier] isEqualToString:@"PhotoSessionCellSegue"]){
         NSIndexPath *selectedRowIndex = [self.tableView indexPathForSelectedRow];
         PhotoSessionViewController *detailViewController = [segue destinationViewController];
+        NSLog(@"Sending PS: %@", [photoSessions objectAtIndex:selectedRowIndex.row]  );
         detailViewController.ps = [photoSessions objectAtIndex:selectedRowIndex.row];
     }
 }
