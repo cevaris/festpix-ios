@@ -232,7 +232,6 @@
                     </view>
                     <navigationItem key="navigationItem" id="wLn-fX-uYf"/>
                     <connections>
-                        <outlet property="imageOne" destination="1Tp-ZO-ZR9" id="8qk-BC-H2c"/>
                         <outlet property="lblCreatedAt" destination="RfE-Tg-KLy" id="gw8-y7-6Lr"/>
                         <outlet property="lblIsSuccess" destination="xJa-z2-bsP" id="Sxe-xg-bd4"/>
                         <outlet property="picutreOne" destination="1Tp-ZO-ZR9" id="LSy-Of-hgT"/>

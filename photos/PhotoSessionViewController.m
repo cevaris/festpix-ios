@@ -52,7 +52,7 @@
         }
         
         if ([self.ps photoTwo]) {
-            [library assetForURL:[NSURL URLWithString:[[self.ps photoOne] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]] resultBlock:^(ALAsset *asset) {
+            [library assetForURL:[NSURL URLWithString:[[self.ps photoTwo] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]] resultBlock:^(ALAsset *asset) {
                 self.picutreTwo.image = [UIImage imageWithCGImage:[[asset defaultRepresentation] fullResolutionImage]];
                 self.picutreTwo.contentMode = UIViewContentModeScaleAspectFit;
             } failureBlock:^(NSError *error) {
@@ -61,7 +61,7 @@
         }
         
         if ([self.ps photoThree]) {
-            [library assetForURL:[NSURL URLWithString:[[self.ps photoOne] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]] resultBlock:^(ALAsset *asset) {
+            [library assetForURL:[NSURL URLWithString:[[self.ps photoThree] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]] resultBlock:^(ALAsset *asset) {
                 self.picutreThree.image = [UIImage imageWithCGImage:[[asset defaultRepresentation] fullResolutionImage]];
                 self.picutreThree.contentMode = UIViewContentModeScaleAspectFit;
             } failureBlock:^(NSError *error) {
