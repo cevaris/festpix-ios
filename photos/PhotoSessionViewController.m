@@ -27,6 +27,48 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    if (self.ps) {
+        NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
+        [dateFormat setDateFormat:@"E MMM, dd"];
+        
+        NSDateFormatter *timeFormat = [[NSDateFormatter alloc] init];
+        [timeFormat setDateFormat:@"hh:mm:ss a"];
+        
+        NSString *theDate = [dateFormat stringFromDate:[self.ps createdAt]];
+        NSString *theTime = [timeFormat stringFromDate:[self.ps createdAt]];
+        
+        self.lblCreatedAt.text = [NSString stringWithFormat:@"%@ - %@", theTime, theDate];
+        self.lblIsSuccess.text = [self.ps isSuccess] ? @"Yes" : @"No";
+        
+        ALAssetsLibrary *library = [[ALAssetsLibrary alloc] init];
+        if ([self.ps photoOne]) {
+            [library assetForURL:[NSURL URLWithString:[[self.ps photoOne] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]] resultBlock:^(ALAsset *asset) {
+                self.picutreOne.image = [UIImage imageWithCGImage:[[asset defaultRepresentation] fullResolutionImage]];
+                self.picutreOne.contentMode = UIViewContentModeScaleAspectFit;
+            } failureBlock:^(NSError *error) {
+                NSLog(@"error : %@", error);
+            }];
+        }
+        
+        if ([self.ps photoTwo]) {
+            [library assetForURL:[NSURL URLWithString:[[self.ps photoOne] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]] resultBlock:^(ALAsset *asset) {
+                self.picutreTwo.image = [UIImage imageWithCGImage:[[asset defaultRepresentation] fullResolutionImage]];
+                self.picutreTwo.contentMode = UIViewContentModeScaleAspectFit;
+            } failureBlock:^(NSError *error) {
+                NSLog(@"error : %@", error);
+            }];
+        }
+        
+        if ([self.ps photoThree]) {
+            [library assetForURL:[NSURL URLWithString:[[self.ps photoOne] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]] resultBlock:^(ALAsset *asset) {
+                self.picutreThree.image = [UIImage imageWithCGImage:[[asset defaultRepresentation] fullResolutionImage]];
+                self.picutreThree.contentMode = UIViewContentModeScaleAspectFit;
+            } failureBlock:^(NSError *error) {
+                NSLog(@"error : %@", error);
+            }];
+        }
+    }
 }
 
 - (void)didReceiveMemoryWarning

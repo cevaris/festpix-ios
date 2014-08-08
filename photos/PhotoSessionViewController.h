@@ -8,10 +8,17 @@
 
 #import "ViewController.h"
 #import "PhotoSession.h"
+#import <AssetsLibrary/AssetsLibrary.h>
 
-@interface PhotoSessionViewController : UITableViewController
+@interface PhotoSessionViewController : ViewController
     
 @property (nonatomic, strong) PhotoSession *ps;
+
+@property (weak, nonatomic) IBOutlet UILabel *lblCreatedAt;
+@property (weak, nonatomic) IBOutlet UILabel *lblIsSuccess;
+@property (weak, nonatomic) IBOutlet UIImageView *picutreOne;
+@property (weak, nonatomic) IBOutlet UIImageView *picutreTwo;
+@property (weak, nonatomic) IBOutlet UIImageView *picutreThree;
 
 
 
