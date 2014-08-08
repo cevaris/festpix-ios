@@ -22,4 +22,7 @@
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 //@property (weak, nonatomic) IBOutlet UIRefreshControl* refreshControl;
 //@property (weak, nonatomic) UIRefreshControl* refreshControl;
+
+-(void) fetchDisplayData;
+
 @end

@@ -254,6 +254,12 @@
         [ps setUrl:[responseObject valueForKey:@"path"]];
         [PhotoSessionPersistence save:ps];
         NSLog(@"Saved Logs %@", [PhotoSessionPersistence loadAll]);
+        
+        UINavigationController *navController = [self.tabBarController.childViewControllers objectAtIndex:1];
+        PhotoSessionTableViewController *tableController = [navController.viewControllers objectAtIndex:0];
+        [tableController fetchDisplayData];
+        
+
 
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
 

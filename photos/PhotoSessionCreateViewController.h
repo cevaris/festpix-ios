@@ -11,6 +11,7 @@
 #import "AFNetworking.h"
 #import "PhotoSession.h"
 #import "PhotoSessionPersistence.h"
+#import "PhotoSessionTableViewController.h"
 
 @interface PhotoSessionCreateViewController : ViewController <UINavigationControllerDelegate, ELCImagePickerControllerDelegate, UITextFieldDelegate> {
     @private UIImage      *defaultImg;
