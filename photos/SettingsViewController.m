@@ -27,6 +27,8 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    _servers = @[@"http://localhost:3000", @"http://dev.festpix.com", @"http://app.festpix.com"];
 }
 
 - (void)didReceiveMemoryWarning
@@ -75,4 +77,23 @@
             break;
     }
 }
+
+- (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView {
+    return 1;
+}
+
+- (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component {
+    return _servers.count;
+}
+
+- (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component {
+    return _servers[row];
+}
+
+-(void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component {
+    NSString *server = _servers[row];
+    NSLog(@"Selected Server: %@", server);
+}
+
+
 @end
