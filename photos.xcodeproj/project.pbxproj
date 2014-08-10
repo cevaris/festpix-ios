@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		533B1691199702A200591FE8 /* person-30x30.png in Resources */ = {isa = PBXBuildFile; fileRef = 533B168F199702A200591FE8 /* person-30x30.png */; };
+		533B1692199702A200591FE8 /* person.png in Resources */ = {isa = PBXBuildFile; fileRef = 533B1690199702A200591FE8 /* person.png */; };
 		534F58081984BCA400CEB86F /* CoreData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 534F58061984BCA400CEB86F /* CoreData.xcdatamodeld */; };
 		534F580C1984BE0A00CEB86F /* PhotoSession.m in Sources */ = {isa = PBXBuildFile; fileRef = 534F580B1984BE0A00CEB86F /* PhotoSession.m */; };
 		538F0CA21990824E0022B1A4 /* camera-30x30.png in Resources */ = {isa = PBXBuildFile; fileRef = 538F0CA11990824E0022B1A4 /* camera-30x30.png */; };
@@ -51,6 +53,8 @@
 
 /* Begin PBXFileReference section */
 		39C9BFD1B8B849F28789A00A /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		533B168F199702A200591FE8 /* person-30x30.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "person-30x30.png"; sourceTree = "<group>"; };
+		533B1690199702A200591FE8 /* person.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = person.png; sourceTree = "<group>"; };
 		534F58071984BCA400CEB86F /* CoreData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CoreData.xcdatamodel; sourceTree = "<group>"; };
 		534F580A1984BE0A00CEB86F /* PhotoSession.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoSession.h; sourceTree = "<group>"; };
 		534F580B1984BE0A00CEB86F /* PhotoSession.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoSession.m; sourceTree = "<group>"; };
@@ -223,6 +227,8 @@
 		53A4B81819527EBC007262F0 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				533B168F199702A200591FE8 /* person-30x30.png */,
+				533B1690199702A200591FE8 /* person.png */,
 				53A668951991DDCF007A61D7 /* logo-60x60.png */,
 				53A668961991DDCF007A61D7 /* logo-120x120.png */,
 				53A668931991DD02007A61D7 /* logo.png */,
@@ -352,6 +358,8 @@
 				53A4B7F419527ADD007262F0 /* Main_iPhone.storyboard in Resources */,
 				53A668971991DDCF007A61D7 /* logo-60x60.png in Resources */,
 				53A4B7EB19527ADD007262F0 /* InfoPlist.strings in Resources */,
+				533B1691199702A200591FE8 /* person-30x30.png in Resources */,
+				533B1692199702A200591FE8 /* person.png in Resources */,
 				53A668941991DD02007A61D7 /* logo.png in Resources */,
 				53A4B81A19527EBC007262F0 /* camera.png in Resources */,
 				53A668981991DDCF007A61D7 /* logo-120x120.png in Resources */,

@@ -4,6 +4,35 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
     </dependencies>
     <scenes>
+        <!--Table View Controller - Customers-->
+        <scene sceneID="wuw-db-5kM">
+            <objects>
+                <tableViewController id="k3n-YO-Wph" sceneMemberID="viewController">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="HjD-Lk-A2V">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="A3b-U8-pXH">
+                                <rect key="frame" x="0.0" y="22" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="A3b-U8-pXH" id="oF8-8C-1Wj">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="k3n-YO-Wph" id="dfE-hk-NGU"/>
+                            <outlet property="delegate" destination="k3n-YO-Wph" id="kxI-Y8-cF6"/>
+                        </connections>
+                    </tableView>
+                    <tabBarItem key="tabBarItem" title="Customers" image="person-30x30.png" id="fh0-0E-Qar"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="egU-pf-L3M" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="752" y="-1001"/>
+        </scene>
         <!--Photo Session Create View Controller - Camera-->
         <scene sceneID="ufC-wZ-h7g">
             <objects>
@@ -266,6 +295,7 @@
                     <connections>
                         <segue destination="vXZ-lx-hvc" kind="relationship" relationship="viewControllers" id="npy-eZ-TTH"/>
                         <segue destination="RlV-L6-kkG" kind="relationship" relationship="viewControllers" id="oPX-oZ-b4o"/>
+                        <segue destination="k3n-YO-Wph" kind="relationship" relationship="viewControllers" id="aNf-ES-cA5"/>
                         <segue destination="h6w-MH-PAb" kind="relationship" relationship="viewControllers" id="rK3-su-nEf"/>
                     </connections>
                 </tabBarController>
@@ -368,6 +398,7 @@
         <image name="camera-30x30.png" width="30" height="30"/>
         <image name="camera.png" width="512" height="512"/>
         <image name="logo.png" width="128" height="128"/>
+        <image name="person-30x30.png" width="30" height="30"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
