@@ -58,6 +58,7 @@
         [ps setPhotoOne:[info valueForKey:@"photoOne"]];
         [ps setPhotoTwo:[info valueForKey:@"photoTwo"]];
         [ps setPhotoThree:[info valueForKey:@"photoThree"]];
+        [ps setDb:info];
       
         [results addObject:ps];
     }
@@ -92,6 +93,23 @@
     
 }
 
+//+ (BOOL) update:(PhotoSession*)ps {
+//    NSError *error = nil;
+//
+//    AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
+//    NSManagedObjectContext *context = [appDelegate managedObjectContext];
+//    
+//    [context save:&error];
+//    
+//    if (error) {
+//        NSLog(@"The error was: %@", [error localizedDescription]);
+//        return NO;
+//    } else {
+//        NSLog(@"Successfull update");
+//        return YES;
+//    }
+//}
+
 + (BOOL) save:(PhotoSession*)ps {
     
     AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
@@ -99,8 +117,13 @@
     
     NSManagedObject *mObject;
     
-    mObject = [NSEntityDescription insertNewObjectForEntityForName:@"PhotoSessions"
-                                            inManagedObjectContext:context];
+    if([ps db]) {
+        mObject = [ps db];
+        
+    } else {
+        mObject = [NSEntityDescription insertNewObjectForEntityForName:@"PhotoSessions"
+                                                inManagedObjectContext:context];
+    }
     
     NSLog(@"Saving PhotoSession: %@", ps);
     

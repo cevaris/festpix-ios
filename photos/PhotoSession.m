@@ -17,6 +17,7 @@
         self.attemptNum = 0;
         self.isSuccess  = NO;
         self.url        = nil;
+        self.db         = nil;
     }
     return self;
 }

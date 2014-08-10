@@ -40,11 +40,13 @@
         
         self.lblCreatedAt.text = [NSString stringWithFormat:@"%@ - %@", theTime, theDate];
         self.lblIsSuccess.text = [self.ps isSuccess] ? @"Yes" : @"No";
+        self.lblAttemptNum.text = [NSString stringWithFormat:@"%d",[self.ps attemptNum]];
         
         if ([self.ps url]){
             [self.btnUrl setHidden:NO];
             [self.btnUrl setContentHorizontalAlignment:UIControlContentHorizontalAlignmentLeft];
             [self.btnUrl setTitle:[NSString stringWithFormat:@"http://%@", [self.ps url]] forState:UIControlStateNormal];
+            [self.btnRetry setEnabled:NO];
         } else {
             [self.btnUrl setHidden:YES];
         }
@@ -79,6 +81,7 @@
     }
 }
 
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
@@ -103,4 +106,61 @@
     }
     
 }
+
+- (IBAction)clickRetry:(id)sender {
+}
+
+- (void)retry {
+    
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    NSDictionary *parameters = @{@"photo_session[phone_list]": [self.ps phoneList]};
+    //http://localhost:3000/photo_sessions.json
+    
+    [[self.ps db] setValue:[NSNumber numberWithInt:([self.ps attemptNum]+1)] forKeyPath:@"attemptNum"];
+    
+    NSString *root_url = [[NSBundle mainBundle] objectForInfoDictionaryKey:@"RootURL"];
+    NSString *url = [NSString stringWithFormat:@"%@/photo_sessions.json", root_url];
+    [manager POST:url parameters:parameters constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
+        
+        [formData appendPartWithFileData:UIImageJPEGRepresentation(self.picutreOne.image,1.0)
+                                    name:[NSString stringWithFormat:@"photo_session[photos_attributes][%d][image]", 0]
+                                fileName:[NSString stringWithFormat:@"%d.jpg", 0]
+                                mimeType:@"image/jpeg"];
+        [formData appendPartWithFileData:UIImageJPEGRepresentation(self.picutreTwo.image,1.0)
+                                    name:[NSString stringWithFormat:@"photo_session[photos_attributes][%d][image]", 1]
+                                fileName:[NSString stringWithFormat:@"%d.jpg", 1]
+                                mimeType:@"image/jpeg"];
+
+        [formData appendPartWithFileData:UIImageJPEGRepresentation(self.picutreThree.image,1.0)
+                                    name:[NSString stringWithFormat:@"photo_session[photos_attributes][%d][image]", 2]
+                                fileName:[NSString stringWithFormat:@"%d.jpg", 2]
+                                mimeType:@"image/jpeg"];
+//
+//        
+//        for(int i=0;i<[images count];i++) {
+//            UIImage *eachImage  = [images objectAtIndex:i];
+//            [formData appendPartWithFileData:UIImageJPEGRepresentation(eachImage,1.0)
+//                                        name:[NSString stringWithFormat:@"photo_session[photos_attributes][%d][image]", i]
+//                                    fileName:[NSString stringWithFormat:@"%d.jpg", i]
+//                                    mimeType:@"image/jpeg"];
+//        }
+    } success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        
+        NSLog(@"Success Path: %@", [responseObject valueForKey:@"path"]);
+        [self.ps setUrl:[responseObject valueForKeyPath:@"path"]];
+        [self.ps setIsSuccess:YES];
+        [PhotoSessionPersistence save:self.ps];
+        NSLog(@"Saved Logs %@", [PhotoSessionPersistence loadAll]);
+        
+        UINavigationController *navController = [self.tabBarController.childViewControllers objectAtIndex:1];
+        PhotoSessionTableViewController *tableController = [navController.viewControllers objectAtIndex:0];
+        [tableController fetchDisplayData];
+        
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"Error: %@", error);
+        [PhotoSessionPersistence save:self.ps];
+    }];
+    
+}
+
 @end

@@ -15,5 +15,6 @@
 + (NSArray*)loadAll;
 + (BOOL)deleteAll;
 + (BOOL)save:(PhotoSession*)ps;
+//+ (BOOL)update:(PhotoSession*)ps;
 
 @end

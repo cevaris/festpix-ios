@@ -7,8 +7,13 @@
 //
 
 #import "ViewController.h"
-#import "PhotoSession.h"
 #import <AssetsLibrary/AssetsLibrary.h>
+
+#import "AFNetworking.h"
+
+#import "PhotoSession.h"
+#import "PhotoSessionPersistence.h"
+#import "PhotoSessionTableViewController.h"
 
 @interface PhotoSessionViewController : ViewController
     
@@ -20,9 +25,12 @@
 @property (weak, nonatomic) IBOutlet UIImageView *picutreOne;
 @property (weak, nonatomic) IBOutlet UIImageView *picutreTwo;
 @property (weak, nonatomic) IBOutlet UIImageView *picutreThree;
+@property (weak, nonatomic) IBOutlet UIButton *btnRetry;
+@property (weak, nonatomic) IBOutlet UILabel *lblAttemptNum;
 
 
 - (IBAction)clickUrl:(id)sender;
+- (IBAction)clickRetry:(id)sender;
 
 
 @end

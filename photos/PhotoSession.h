@@ -20,5 +20,7 @@
 @property int       attemptNum;
 @property BOOL      isSuccess;
 
+@property NSManagedObject *db;
+
 - (NSString *)description;
 @end

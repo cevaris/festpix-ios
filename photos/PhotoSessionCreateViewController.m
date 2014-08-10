@@ -237,8 +237,8 @@
     //http://localhost:3000/photo_sessions.json
 //    NSString *root_url = [[NSBundle mainBundle] objectForInfoDictionaryKey:@"RootURL"];
     
-    UINavigationController *navController = [self.tabBarController.childViewControllers objectAtIndex:2];
-    SettingsViewController *settingsViewController = [navController.viewControllers objectAtIndex:0];
+//    UINavigationController *navController = [self.tabBarController.childViewControllers objectAtIndex:2];
+//    SettingsViewController *settingsViewController = [navController.viewControllers objectAtIndex:0];
     
     
     NSString *root_url = [[NSBundle mainBundle] objectForInfoDictionaryKey:@"RootURL"];
