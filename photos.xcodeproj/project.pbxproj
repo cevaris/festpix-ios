@@ -9,6 +9,11 @@
 /* Begin PBXBuildFile section */
 		533B1691199702A200591FE8 /* person-30x30.png in Resources */ = {isa = PBXBuildFile; fileRef = 533B168F199702A200591FE8 /* person-30x30.png */; };
 		533B1692199702A200591FE8 /* person.png in Resources */ = {isa = PBXBuildFile; fileRef = 533B1690199702A200591FE8 /* person.png */; };
+		533B16951997041E00591FE8 /* CustomerTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 533B16941997041E00591FE8 /* CustomerTableViewController.m */; };
+		533B16981997043C00591FE8 /* CustomerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 533B16971997043C00591FE8 /* CustomerViewController.m */; };
+		533B169B1997045D00591FE8 /* CustomerCreateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 533B169A1997045D00591FE8 /* CustomerCreateViewController.m */; };
+		533B169E1997050300591FE8 /* Customer.m in Sources */ = {isa = PBXBuildFile; fileRef = 533B169D1997050300591FE8 /* Customer.m */; };
+		533B16A11997053300591FE8 /* CustomerPersistence.m in Sources */ = {isa = PBXBuildFile; fileRef = 533B16A01997053300591FE8 /* CustomerPersistence.m */; };
 		534F58081984BCA400CEB86F /* CoreData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 534F58061984BCA400CEB86F /* CoreData.xcdatamodeld */; };
 		534F580C1984BE0A00CEB86F /* PhotoSession.m in Sources */ = {isa = PBXBuildFile; fileRef = 534F580B1984BE0A00CEB86F /* PhotoSession.m */; };
 		538F0CA21990824E0022B1A4 /* camera-30x30.png in Resources */ = {isa = PBXBuildFile; fileRef = 538F0CA11990824E0022B1A4 /* camera-30x30.png */; };
@@ -55,6 +60,16 @@
 		39C9BFD1B8B849F28789A00A /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		533B168F199702A200591FE8 /* person-30x30.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "person-30x30.png"; sourceTree = "<group>"; };
 		533B1690199702A200591FE8 /* person.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = person.png; sourceTree = "<group>"; };
+		533B16931997041E00591FE8 /* CustomerTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomerTableViewController.h; sourceTree = "<group>"; };
+		533B16941997041E00591FE8 /* CustomerTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomerTableViewController.m; sourceTree = "<group>"; };
+		533B16961997043C00591FE8 /* CustomerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomerViewController.h; sourceTree = "<group>"; };
+		533B16971997043C00591FE8 /* CustomerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomerViewController.m; sourceTree = "<group>"; };
+		533B16991997045D00591FE8 /* CustomerCreateViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomerCreateViewController.h; sourceTree = "<group>"; };
+		533B169A1997045D00591FE8 /* CustomerCreateViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomerCreateViewController.m; sourceTree = "<group>"; };
+		533B169C1997050300591FE8 /* Customer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Customer.h; sourceTree = "<group>"; };
+		533B169D1997050300591FE8 /* Customer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Customer.m; sourceTree = "<group>"; };
+		533B169F1997053300591FE8 /* CustomerPersistence.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomerPersistence.h; sourceTree = "<group>"; };
+		533B16A01997053300591FE8 /* CustomerPersistence.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomerPersistence.m; sourceTree = "<group>"; };
 		534F58071984BCA400CEB86F /* CoreData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CoreData.xcdatamodel; sourceTree = "<group>"; };
 		534F580A1984BE0A00CEB86F /* PhotoSession.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoSession.h; sourceTree = "<group>"; };
 		534F580B1984BE0A00CEB86F /* PhotoSession.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoSession.m; sourceTree = "<group>"; };
@@ -139,6 +154,8 @@
 				53B16279198B231F00AF3D34 /* persistance */,
 				534F580A1984BE0A00CEB86F /* PhotoSession.h */,
 				534F580B1984BE0A00CEB86F /* PhotoSession.m */,
+				533B169C1997050300591FE8 /* Customer.h */,
+				533B169D1997050300591FE8 /* Customer.m */,
 			);
 			name = models;
 			sourceTree = "<group>";
@@ -250,6 +267,12 @@
 				538F0CA419908AD50022B1A4 /* SettingsViewController.m */,
 				53A668991991E755007A61D7 /* PhotoSessionViewController.h */,
 				53A6689A1991E755007A61D7 /* PhotoSessionViewController.m */,
+				533B16931997041E00591FE8 /* CustomerTableViewController.h */,
+				533B16941997041E00591FE8 /* CustomerTableViewController.m */,
+				533B16961997043C00591FE8 /* CustomerViewController.h */,
+				533B16971997043C00591FE8 /* CustomerViewController.m */,
+				533B16991997045D00591FE8 /* CustomerCreateViewController.h */,
+				533B169A1997045D00591FE8 /* CustomerCreateViewController.m */,
 			);
 			name = views;
 			sourceTree = "<group>";
@@ -268,6 +291,8 @@
 			children = (
 				53B1627A198B264E00AF3D34 /* PhotoSessionPersistence.h */,
 				53B1627B198B264E00AF3D34 /* PhotoSessionPersistence.m */,
+				533B169F1997053300591FE8 /* CustomerPersistence.h */,
+				533B16A01997053300591FE8 /* CustomerPersistence.m */,
 			);
 			name = persistance;
 			sourceTree = "<group>";
@@ -419,10 +444,15 @@
 				53A4B81E19528021007262F0 /* PhotoSessionCreateViewController.m in Sources */,
 				53A4B7FA19527ADD007262F0 /* ViewController.m in Sources */,
 				538F0CA519908AD50022B1A4 /* SettingsViewController.m in Sources */,
+				533B169E1997050300591FE8 /* Customer.m in Sources */,
 				534F58081984BCA400CEB86F /* CoreData.xcdatamodeld in Sources */,
+				533B16951997041E00591FE8 /* CustomerTableViewController.m in Sources */,
+				533B16A11997053300591FE8 /* CustomerPersistence.m in Sources */,
 				534F580C1984BE0A00CEB86F /* PhotoSession.m in Sources */,
 				53A6689B1991E755007A61D7 /* PhotoSessionViewController.m in Sources */,
 				53B1627C198B264E00AF3D34 /* PhotoSessionPersistence.m in Sources */,
+				533B16981997043C00591FE8 /* CustomerViewController.m in Sources */,
+				533B169B1997045D00591FE8 /* CustomerCreateViewController.m in Sources */,
 				53A6688F1991D38F007A61D7 /* PhotoSessionTableViewCell.m in Sources */,
 				53A4B7F119527ADD007262F0 /* AppDelegate.m in Sources */,
 				53A4B7ED19527ADD007262F0 /* main.m in Sources */,

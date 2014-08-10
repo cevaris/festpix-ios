@@ -4,22 +4,25 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
     </dependencies>
     <scenes>
-        <!--Table View Controller - Customers-->
+        <!--Customer Table View Controller-->
         <scene sceneID="wuw-db-5kM">
             <objects>
-                <tableViewController id="k3n-YO-Wph" sceneMemberID="viewController">
+                <tableViewController id="k3n-YO-Wph" customClass="CustomerTableViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="HjD-Lk-A2V">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="A3b-U8-pXH">
-                                <rect key="frame" x="0.0" y="22" width="320" height="44"/>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="A3b-U8-pXH">
+                                <rect key="frame" x="0.0" y="86" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="A3b-U8-pXH" id="oF8-8C-1Wj">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="287" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="U3W-KK-i4c" kind="push" id="bzd-v9-4i2"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -27,11 +30,62 @@
                             <outlet property="delegate" destination="k3n-YO-Wph" id="kxI-Y8-cF6"/>
                         </connections>
                     </tableView>
-                    <tabBarItem key="tabBarItem" title="Customers" image="person-30x30.png" id="fh0-0E-Qar"/>
+                    <navigationItem key="navigationItem" id="vhn-NU-hFR">
+                        <barButtonItem key="rightBarButtonItem" style="plain" id="iW6-Xt-BcC">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="contactAdd" lineBreakMode="middleTruncation" id="xOC-Fu-wtY">
+                                <rect key="frame" x="282" y="11" width="22" height="22"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <connections>
+                                <segue destination="SjK-TH-god" kind="push" identifier="CreateCustomerSegue" id="dzW-KZ-vBY"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="egU-pf-L3M" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="752" y="-1001"/>
+            <point key="canvasLocation" x="1278" y="-1001"/>
+        </scene>
+        <!--Customer Create View Controller - Create Customer-->
+        <scene sceneID="c5Q-xO-eCe">
+            <objects>
+                <viewController id="SjK-TH-god" customClass="CustomerCreateViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="WXW-LG-CAc"/>
+                        <viewControllerLayoutGuide type="bottom" id="W0Q-mP-Dmy"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="px3-Ak-SzH">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Create Customer" id="gjS-on-Zn3"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Hs4-Qq-uva" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1821" y="-1321"/>
+        </scene>
+        <!--Customer View Controller - Customer View-->
+        <scene sceneID="1eB-S5-90L">
+            <objects>
+                <viewController id="U3W-KK-i4c" customClass="CustomerViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="MOP-XO-pAf"/>
+                        <viewControllerLayoutGuide type="bottom" id="v0j-qg-h5n"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="B2w-XK-BX6">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Customer View" id="CDh-ks-2Xv"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="L4m-5n-mcL" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1821" y="-613"/>
         </scene>
         <!--Photo Session Create View Controller - Camera-->
         <scene sceneID="ufC-wZ-h7g">
@@ -295,7 +349,7 @@
                     <connections>
                         <segue destination="vXZ-lx-hvc" kind="relationship" relationship="viewControllers" id="npy-eZ-TTH"/>
                         <segue destination="RlV-L6-kkG" kind="relationship" relationship="viewControllers" id="oPX-oZ-b4o"/>
-                        <segue destination="k3n-YO-Wph" kind="relationship" relationship="viewControllers" id="aNf-ES-cA5"/>
+                        <segue destination="2hH-VN-qT1" kind="relationship" relationship="viewControllers" id="aNf-ES-cA5"/>
                         <segue destination="h6w-MH-PAb" kind="relationship" relationship="viewControllers" id="rK3-su-nEf"/>
                     </connections>
                 </tabBarController>
@@ -319,7 +373,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iHO-r4-arM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1175" y="-321"/>
+            <point key="canvasLocation" x="1278" y="-321"/>
         </scene>
         <!--Settings View Controller-->
         <scene sceneID="8zU-qm-4YT">
@@ -392,6 +446,29 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UdO-lD-0uK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="752" y="372"/>
+        </scene>
+        <!--Navigation Controller - Customers-->
+        <scene sceneID="aTV-BY-3Ms">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="2hH-VN-qT1" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Customers" image="person-30x30.png" id="fh0-0E-Qar"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="hvh-z0-rgz">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="HUc-qU-Tf1">
+                        <rect key="frame" x="0.0" y="524" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </toolbar>
+                    <connections>
+                        <segue destination="k3n-YO-Wph" kind="relationship" relationship="rootViewController" id="P50-ce-jQA"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6C4-7s-s83" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="752" y="-1001"/>
         </scene>
     </scenes>
     <resources>
