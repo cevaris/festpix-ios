@@ -40,14 +40,18 @@
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
     AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
     NSManagedObjectContext *context = [appDelegate managedObjectContext];
+    NSSortDescriptor *descriptor = [NSSortDescriptor sortDescriptorWithKey:@"createdAt" ascending:NO];
+    fetchRequest.sortDescriptors = [NSArray arrayWithObject:descriptor];
     NSEntityDescription *entity = [NSEntityDescription
                                    entityForName:@"PhotoSessions" inManagedObjectContext:context];
     [fetchRequest setEntity:entity];
     NSArray *fetchedObjects = [context executeFetchRequest:fetchRequest error:&error];
     
+    
+    
     NSMutableArray *results = [[NSMutableArray alloc] init];
     for (NSManagedObject *info in fetchedObjects) {
-        NSLog(@"PhotoSesion: %@", info);
+//        NSLog(@"PhotoSesion: %@", info);
         PhotoSession *ps = [[PhotoSession alloc] init];
     
         [ps setCreatedAt:(NSDate *) [info valueForKey:@"createdAt"]];
