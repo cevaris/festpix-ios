@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		462D7D7A19C2378C00929F8C /* EventsRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 462D7D7919C2378C00929F8C /* EventsRequest.m */; };
+		462D7D7D19C24E7000929F8C /* Event.m in Sources */ = {isa = PBXBuildFile; fileRef = 462D7D7C19C24E7000929F8C /* Event.m */; };
 		533B1691199702A200591FE8 /* person-30x30.png in Resources */ = {isa = PBXBuildFile; fileRef = 533B168F199702A200591FE8 /* person-30x30.png */; };
 		533B1692199702A200591FE8 /* person.png in Resources */ = {isa = PBXBuildFile; fileRef = 533B1690199702A200591FE8 /* person.png */; };
 		533B16951997041E00591FE8 /* CustomerTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 533B16941997041E00591FE8 /* CustomerTableViewController.m */; };
@@ -58,6 +60,10 @@
 
 /* Begin PBXFileReference section */
 		39C9BFD1B8B849F28789A00A /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		462D7D7819C2378C00929F8C /* EventsRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventsRequest.h; sourceTree = "<group>"; };
+		462D7D7919C2378C00929F8C /* EventsRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventsRequest.m; sourceTree = "<group>"; };
+		462D7D7B19C24E7000929F8C /* Event.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Event.h; sourceTree = "<group>"; };
+		462D7D7C19C24E7000929F8C /* Event.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Event.m; sourceTree = "<group>"; };
 		533B168F199702A200591FE8 /* person-30x30.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "person-30x30.png"; sourceTree = "<group>"; };
 		533B1690199702A200591FE8 /* person.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = person.png; sourceTree = "<group>"; };
 		533B16931997041E00591FE8 /* CustomerTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomerTableViewController.h; sourceTree = "<group>"; };
@@ -140,6 +146,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		462D7D7719C2371D00929F8C /* requests */ = {
+			isa = PBXGroup;
+			children = (
+				462D7D7819C2378C00929F8C /* EventsRequest.h */,
+				462D7D7919C2378C00929F8C /* EventsRequest.m */,
+			);
+			name = requests;
+			sourceTree = "<group>";
+		};
 		534F58051984BC8C00CEB86F /* schema */ = {
 			isa = PBXGroup;
 			children = (
@@ -156,6 +171,8 @@
 				534F580B1984BE0A00CEB86F /* PhotoSession.m */,
 				533B169C1997050300591FE8 /* Customer.h */,
 				533B169D1997050300591FE8 /* Customer.m */,
+				462D7D7B19C24E7000929F8C /* Event.h */,
+				462D7D7C19C24E7000929F8C /* Event.m */,
 			);
 			name = models;
 			sourceTree = "<group>";
@@ -196,6 +213,7 @@
 		53A4B7E619527ADD007262F0 /* photos */ = {
 			isa = PBXGroup;
 			children = (
+				462D7D7719C2371D00929F8C /* requests */,
 				534F58091984BDED00CEB86F /* models */,
 				534F58051984BC8C00CEB86F /* schema */,
 				53A4B81B19527FEE007262F0 /* views */,
@@ -441,6 +459,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				53B1627F198B360A00AF3D34 /* PhotoSessionTableViewController.m in Sources */,
+				462D7D7A19C2378C00929F8C /* EventsRequest.m in Sources */,
 				53A4B81E19528021007262F0 /* PhotoSessionCreateViewController.m in Sources */,
 				53A4B7FA19527ADD007262F0 /* ViewController.m in Sources */,
 				538F0CA519908AD50022B1A4 /* SettingsViewController.m in Sources */,
@@ -451,6 +470,7 @@
 				534F580C1984BE0A00CEB86F /* PhotoSession.m in Sources */,
 				53A6689B1991E755007A61D7 /* PhotoSessionViewController.m in Sources */,
 				53B1627C198B264E00AF3D34 /* PhotoSessionPersistence.m in Sources */,
+				462D7D7D19C24E7000929F8C /* Event.m in Sources */,
 				533B16981997043C00591FE8 /* CustomerViewController.m in Sources */,
 				533B169B1997045D00591FE8 /* CustomerCreateViewController.m in Sources */,
 				53A6688F1991D38F007A61D7 /* PhotoSessionTableViewCell.m in Sources */,

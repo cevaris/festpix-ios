@@ -28,7 +28,9 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    _servers = @[@"http://localhost:3000", @"http://dev.festpix.com", @"http://app.festpix.com"];
+//    _server = @[];
+    
+//    _servers = @[@"http://dev.festpix.com", @"http://app.festpix.com"];
 }
 
 - (void)didReceiveMemoryWarning

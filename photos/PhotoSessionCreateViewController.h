@@ -13,11 +13,14 @@
 #import "PhotoSessionPersistence.h"
 #import "PhotoSessionTableViewController.h"
 #import "SettingsViewController.h"
+#import "EventsRequest.h"
 
-@interface PhotoSessionCreateViewController : ViewController <UINavigationControllerDelegate, ELCImagePickerControllerDelegate, UITextFieldDelegate> {
+@interface PhotoSessionCreateViewController : ViewController <UINavigationControllerDelegate, ELCImagePickerControllerDelegate, UITextFieldDelegate, UIPickerViewDelegate, UIPickerViewDataSource> {
     @private UIImage      *defaultImg;
     @private PhotoSession *ps;
 }
+
+@property (weak, nonatomic) IBOutlet UIPickerView *eventPicker;
 
 @property (weak, nonatomic) IBOutlet UITextField *txtPhoneOne;
 @property (weak, nonatomic) IBOutlet UITextField *txtPhoneTwo;
@@ -36,7 +39,6 @@
 - (IBAction)touchedAddPhotos:(id)sender;
 - (IBAction)touchedReset:(id)sender;
 
-
-
+@property (strong, nonatomic) NSMutableArray *eventNames;
 
 @end

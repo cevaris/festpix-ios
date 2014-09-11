@@ -21,7 +21,7 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
-    }    
+    }
     return self;
 }
 
@@ -29,6 +29,16 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    
+    _eventNames = [[NSMutableArray alloc] init];
+    
+    EventsRequest* eventReq = [[EventsRequest alloc]init];
+    for(Event* e in eventReq.getEvents){
+        NSLog(@"Event %@", e.name);
+        [_eventNames addObject: e.name];
+    }
+
     
     defaultImg = [UIImage imageNamed:@"camera.png"];
     
@@ -278,7 +288,6 @@
 
 /*
  #pragma mark - TouchedButtons
- 
  */
 - (IBAction)touchedSubmit:(id)sender {
     NSLog(@"Submitting Upload of Photos");
@@ -293,5 +302,27 @@
 - (IBAction)touchedReset:(id)sender {
     NSLog(@"Restarting UI");
     [self resetUI];
+}
+
+
+/*
+ #pragma mark - PickerView
+ */
+
+- (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView {
+    return 1;
+}
+
+- (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component {
+    return _eventNames.count;
+}
+
+- (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component {
+    return _eventNames[row];
+}
+
+-(void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component {
+    NSString *eventName = _eventNames[row];
+    NSLog(@"Selected Server: %@", eventName);
 }
 @end
