@@ -13,7 +13,7 @@
 #import "PhotoSessionPersistence.h"
 #import "PhotoSessionTableViewController.h"
 #import "SettingsViewController.h"
-#import "EventsRequest.h"
+#import "GlobalState.h"
 
 @interface PhotoSessionCreateViewController : ViewController <UINavigationControllerDelegate, ELCImagePickerControllerDelegate, UITextFieldDelegate, UIPickerViewDelegate, UIPickerViewDataSource> {
     @private UIImage      *defaultImg;

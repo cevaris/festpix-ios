@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		462D7D7A19C2378C00929F8C /* EventsRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 462D7D7919C2378C00929F8C /* EventsRequest.m */; };
 		462D7D7D19C24E7000929F8C /* Event.m in Sources */ = {isa = PBXBuildFile; fileRef = 462D7D7C19C24E7000929F8C /* Event.m */; };
+		462D7D8119C275C600929F8C /* GlobalState.m in Sources */ = {isa = PBXBuildFile; fileRef = 462D7D8019C275C600929F8C /* GlobalState.m */; };
 		533B1691199702A200591FE8 /* person-30x30.png in Resources */ = {isa = PBXBuildFile; fileRef = 533B168F199702A200591FE8 /* person-30x30.png */; };
 		533B1692199702A200591FE8 /* person.png in Resources */ = {isa = PBXBuildFile; fileRef = 533B1690199702A200591FE8 /* person.png */; };
 		533B16951997041E00591FE8 /* CustomerTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 533B16941997041E00591FE8 /* CustomerTableViewController.m */; };
@@ -64,6 +65,8 @@
 		462D7D7919C2378C00929F8C /* EventsRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventsRequest.m; sourceTree = "<group>"; };
 		462D7D7B19C24E7000929F8C /* Event.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Event.h; sourceTree = "<group>"; };
 		462D7D7C19C24E7000929F8C /* Event.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Event.m; sourceTree = "<group>"; };
+		462D7D7F19C275C600929F8C /* GlobalState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GlobalState.h; sourceTree = "<group>"; };
+		462D7D8019C275C600929F8C /* GlobalState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GlobalState.m; sourceTree = "<group>"; };
 		533B168F199702A200591FE8 /* person-30x30.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "person-30x30.png"; sourceTree = "<group>"; };
 		533B1690199702A200591FE8 /* person.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = person.png; sourceTree = "<group>"; };
 		533B16931997041E00591FE8 /* CustomerTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomerTableViewController.h; sourceTree = "<group>"; };
@@ -155,6 +158,15 @@
 			name = requests;
 			sourceTree = "<group>";
 		};
+		462D7D7E19C275A200929F8C /* common */ = {
+			isa = PBXGroup;
+			children = (
+				462D7D7F19C275C600929F8C /* GlobalState.h */,
+				462D7D8019C275C600929F8C /* GlobalState.m */,
+			);
+			name = common;
+			sourceTree = "<group>";
+		};
 		534F58051984BC8C00CEB86F /* schema */ = {
 			isa = PBXGroup;
 			children = (
@@ -213,6 +225,7 @@
 		53A4B7E619527ADD007262F0 /* photos */ = {
 			isa = PBXGroup;
 			children = (
+				462D7D7E19C275A200929F8C /* common */,
 				462D7D7719C2371D00929F8C /* requests */,
 				534F58091984BDED00CEB86F /* models */,
 				534F58051984BC8C00CEB86F /* schema */,
@@ -466,6 +479,7 @@
 				533B169E1997050300591FE8 /* Customer.m in Sources */,
 				534F58081984BCA400CEB86F /* CoreData.xcdatamodeld in Sources */,
 				533B16951997041E00591FE8 /* CustomerTableViewController.m in Sources */,
+				462D7D8119C275C600929F8C /* GlobalState.m in Sources */,
 				533B16A11997053300591FE8 /* CustomerPersistence.m in Sources */,
 				534F580C1984BE0A00CEB86F /* PhotoSession.m in Sources */,
 				53A6689B1991E755007A61D7 /* PhotoSessionViewController.m in Sources */,

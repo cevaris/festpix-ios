@@ -12,9 +12,14 @@
 
 @interface PhotoSessionCreateViewController ()
 
+
 @end
 
+
+
 @implementation PhotoSessionCreateViewController
+
+@synthesize eventNames;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -30,13 +35,15 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
+//    GlobalState
+    eventNames = [[NSMutableArray alloc] init];
     
-    _eventNames = [[NSMutableArray alloc] init];
+    GlobalState * state = [GlobalState sharedState];
     
-    EventsRequest* eventReq = [[EventsRequest alloc]init];
-    for(Event* e in eventReq.getEvents){
+//    EventsRequest* eventReq = [[EventsRequest alloc]init];
+    for(Event* e in state.events){
         NSLog(@"Event %@", e.name);
-        [_eventNames addObject: e.name];
+        [eventNames addObject: e.name];
     }
 
     
@@ -314,15 +321,15 @@
 }
 
 - (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component {
-    return _eventNames.count;
+    return eventNames.count;
 }
 
 - (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component {
-    return _eventNames[row];
+    return eventNames[row];
 }
 
 -(void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component {
-    NSString *eventName = _eventNames[row];
+    NSString *eventName = eventNames[row];
     NSLog(@"Selected Server: %@", eventName);
 }
 @end
