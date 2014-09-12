@@ -8,6 +8,8 @@
 
 #import "GlobalState.h"
 
+NSString *EVENTS_KEY = @"events";
+
 @implementation GlobalState
 
 @synthesize events;
@@ -18,7 +20,18 @@
     dispatch_once(&onceToken, ^{
         state = [[self alloc] init];
     });
+    // Reload state
+    [state load];
     return state;
+}
+
+- (void) load {
+    if ([[NSUserDefaults standardUserDefaults] objectForKey:EVENTS_KEY]){
+        events = [[NSUserDefaults standardUserDefaults]objectForKey:EVENTS_KEY];
+    }
+}
+- (void) commit {
+    [[NSUserDefaults standardUserDefaults] setObject:events forKey:EVENTS_KEY ];
 }
 
 - (id)init {
@@ -29,3 +42,5 @@
 }
 
 @end
+
+

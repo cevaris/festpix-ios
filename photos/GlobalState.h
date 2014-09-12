@@ -14,5 +14,6 @@
 @property (nonatomic, retain) NSArray *events;
 
 + (id)sharedState;
+- (void) commit;
 
 @end
