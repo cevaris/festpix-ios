@@ -8,7 +8,7 @@
 
 #import "GlobalState.h"
 
-NSString *CURRENT_EVENT = @"events";
+NSString *CURRENT_EVENT = @"currentData";
 NSString *EVENTS = @"events";
 
 @implementation GlobalState
@@ -29,15 +29,30 @@ NSString *EVENTS = @"events";
 
 - (void) load {
     if ([[NSUserDefaults standardUserDefaults] objectForKey:EVENTS]){
-        events = [[NSUserDefaults standardUserDefaults]objectForKey:EVENTS];
+        NSData *eventsData = [[NSUserDefaults standardUserDefaults] objectForKey:EVENTS];
+        events = (NSDictionary*) [NSKeyedUnarchiver unarchiveObjectWithData:eventsData];
     }
     if ([[NSUserDefaults standardUserDefaults] objectForKey:CURRENT_EVENT]){
-        currentEvent = [[NSUserDefaults standardUserDefaults]objectForKey:CURRENT_EVENT];
+        NSData *currentEventData = [[NSUserDefaults standardUserDefaults] objectForKey:CURRENT_EVENT];
+        currentEvent = (Event*) [NSKeyedUnarchiver unarchiveObjectWithData:currentEventData];
     }
+
+//    if ([[NSUserDefaults standardUserDefaults] objectForKey:EVENTS]){
+//        events = (NSDictionary*) [[NSUserDefaults standardUserDefaults]objectForKey:EVENTS];
+//    }
+//    if ([[NSUserDefaults standardUserDefaults] objectForKey:CURRENT_EVENT]){
+//        currentEvent = (Event*) [[NSUserDefaults standardUserDefaults]objectForKey:CURRENT_EVENT];
+//    }
 }
 - (void) commit {
-    [[NSUserDefaults standardUserDefaults] setObject:events forKey:EVENTS];
-    [[NSUserDefaults standardUserDefaults] setObject:currentEvent forKey:CURRENT_EVENT];
+    NSData *eventsData = [NSKeyedArchiver archivedDataWithRootObject:events];
+    [[NSUserDefaults standardUserDefaults] setObject:eventsData forKey:EVENTS];
+    
+    NSData *currentEventData = [NSKeyedArchiver archivedDataWithRootObject:currentEvent];
+    [[NSUserDefaults standardUserDefaults] setObject:currentEventData forKey:CURRENT_EVENT];
+
+//    [[NSUserDefaults standardUserDefaults] setObject:events forKey:EVENTS];
+//    [[NSUserDefaults standardUserDefaults] setObject:currentEvent forKey:CURRENT_EVENT];
 }
 
 - (id)init {

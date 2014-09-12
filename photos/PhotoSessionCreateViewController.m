@@ -35,17 +35,10 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-//    GlobalState
-    eventNames = [[NSMutableArray alloc] init];
-    
     GlobalState * state = [GlobalState sharedState];
-    
-//    EventsRequest* eventReq = [[EventsRequest alloc]init];
-    for(Event* e in state.events){
-        NSLog(@"Event %@", e.name);
-        [eventNames addObject: e.name];
-    }
-
+    NSLog(@"%@", [state events]);
+    eventNames = [[state events] allKeys];
+    [self.eventPicker reloadInputViews];
     
     defaultImg = [UIImage imageNamed:@"camera.png"];
     
@@ -55,6 +48,16 @@
     self.txtPhoneTwo.delegate = self;
     self.txtPhoneThree.delegate = self;
 
+}
+
+- (void) viewWillAppear:(BOOL)animated {
+    
+    GlobalState * state = [GlobalState sharedState];
+    NSString *selected = [[state currentEvent] slug];
+    NSLog(@"Loading Seleted: %@  Index:%lu", selected, [eventNames indexOfObject:selected]);
+    [self.eventPicker selectRow:[eventNames indexOfObject:selected] inComponent:0 animated:true];
+
+    
 }
 
 -(void) resetUI {
@@ -328,8 +331,14 @@
     return eventNames[row];
 }
 
+
 -(void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component {
     NSString *eventName = eventNames[row];
     NSLog(@"Selected Server: %@", eventName);
+    
+    GlobalState * state = [GlobalState sharedState];
+    NSDictionary* events = [state events];
+    [state setCurrentEvent:[events objectForKey:eventName]];
+    [state commit];
 }
 @end

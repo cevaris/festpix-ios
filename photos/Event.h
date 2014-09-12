@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface Event : NSObject
+@interface Event : NSObject <NSCoding>
 
 @property NSString *objectId;
 @property NSString *logo;

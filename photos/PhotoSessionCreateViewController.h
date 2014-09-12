@@ -39,6 +39,6 @@
 - (IBAction)touchedAddPhotos:(id)sender;
 - (IBAction)touchedReset:(id)sender;
 
-@property (strong, nonatomic) NSMutableArray *eventNames;
+@property (strong, nonatomic) NSArray *eventNames;
 
 @end

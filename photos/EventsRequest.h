@@ -11,6 +11,6 @@
 
 @interface EventsRequest : NSObject
 
--(NSArray*) getEvents;
+-(NSDictionary*) getEvents;
 
 @end

@@ -13,8 +13,8 @@
 
 
 
--(NSArray*) getEvents {
-    NSMutableArray* events = [[NSMutableArray alloc] init];
+-(NSDictionary*) getEvents {
+    NSMutableDictionary* events = [[NSMutableDictionary alloc] init];
     
     NSString *rootURL = [[NSBundle mainBundle] objectForInfoDictionaryKey:@"RootURL"];
     NSString *urlStr  = [NSString stringWithFormat:@"%@/events.json", rootURL];
@@ -35,7 +35,7 @@
             [event setLogo: [eventJson objectForKey:@"logo"]];
             [event setName: [eventJson objectForKey:@"name"]];
             [event setSlug: [eventJson objectForKey:@"slug"]];
-            [events addObject:event];
+            [events setObject:event forKey:[event slug ]];
         }
         
     }
