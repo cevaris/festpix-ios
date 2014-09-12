@@ -8,10 +8,12 @@
 
 #import "GlobalState.h"
 
-NSString *EVENTS_KEY = @"events";
+NSString *CURRENT_EVENT = @"events";
+NSString *EVENTS = @"events";
 
 @implementation GlobalState
 
+@synthesize currentEvent;
 @synthesize events;
 
 + (id)sharedState {
@@ -26,12 +28,16 @@ NSString *EVENTS_KEY = @"events";
 }
 
 - (void) load {
-    if ([[NSUserDefaults standardUserDefaults] objectForKey:EVENTS_KEY]){
-        events = [[NSUserDefaults standardUserDefaults]objectForKey:EVENTS_KEY];
+    if ([[NSUserDefaults standardUserDefaults] objectForKey:EVENTS]){
+        events = [[NSUserDefaults standardUserDefaults]objectForKey:EVENTS];
+    }
+    if ([[NSUserDefaults standardUserDefaults] objectForKey:CURRENT_EVENT]){
+        currentEvent = [[NSUserDefaults standardUserDefaults]objectForKey:CURRENT_EVENT];
     }
 }
 - (void) commit {
-    [[NSUserDefaults standardUserDefaults] setObject:events forKey:EVENTS_KEY ];
+    [[NSUserDefaults standardUserDefaults] setObject:events forKey:EVENTS];
+    [[NSUserDefaults standardUserDefaults] setObject:currentEvent forKey:CURRENT_EVENT];
 }
 
 - (id)init {

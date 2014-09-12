@@ -12,6 +12,7 @@
 @interface GlobalState : NSObject
 
 @property (nonatomic, retain) NSArray *events;
+@property (nonatomic, retain) Event *currentEvent;
 
 + (id)sharedState;
 - (void) commit;
