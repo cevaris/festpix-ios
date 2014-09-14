@@ -33,10 +33,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
     
     GlobalState * state = [GlobalState sharedState];
-    NSLog(@"%@", [state events]);
     eventNames = [[state events] allKeys];
     [self.eventPicker reloadInputViews];
     
@@ -54,13 +52,10 @@
     
     GlobalState * state = [GlobalState sharedState];
     NSString *selected = [state currentEvent];
-    NSLog(@"Selected Event Slug %@",selected);
     NSUInteger elIndex = [eventNames indexOfObject:selected];
     if(elIndex != NSNotFound){
-        NSLog(@"Loading Seleted: %@  Index:%lu", selected, [eventNames indexOfObject:selected]);
         [self.eventPicker selectRow:elIndex inComponent:0 animated:true];
     }
-
     
 }
 
