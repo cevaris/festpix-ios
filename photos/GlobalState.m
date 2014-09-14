@@ -8,7 +8,7 @@
 
 #import "GlobalState.h"
 
-NSString *CURRENT_EVENT = @"currentData";
+NSString *CURRENT_EVENT = @"currentEvent";
 NSString *EVENTS = @"events";
 
 @implementation GlobalState
@@ -22,43 +22,48 @@ NSString *EVENTS = @"events";
     dispatch_once(&onceToken, ^{
         state = [[self alloc] init];
     });
-    // Reload state
-    [state load];
     return state;
 }
 
 - (void) load {
-    if ([[NSUserDefaults standardUserDefaults] objectForKey:EVENTS]){
-        NSData *eventsData = [[NSUserDefaults standardUserDefaults] objectForKey:EVENTS];
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    
+    if ([defaults objectForKey:EVENTS]){
+        NSData *eventsData = [defaults objectForKey:EVENTS];
         events = (NSDictionary*) [NSKeyedUnarchiver unarchiveObjectWithData:eventsData];
     }
-    if ([[NSUserDefaults standardUserDefaults] objectForKey:CURRENT_EVENT]){
-        NSData *currentEventData = [[NSUserDefaults standardUserDefaults] objectForKey:CURRENT_EVENT];
-        currentEvent = (Event*) [NSKeyedUnarchiver unarchiveObjectWithData:currentEventData];
+    if ([defaults objectForKey:CURRENT_EVENT]){
+        NSData *currentEventData = [defaults objectForKey:CURRENT_EVENT];
+        currentEvent = [NSKeyedUnarchiver unarchiveObjectWithData:currentEventData];
     }
-
-//    if ([[NSUserDefaults standardUserDefaults] objectForKey:EVENTS]){
-//        events = (NSDictionary*) [[NSUserDefaults standardUserDefaults]objectForKey:EVENTS];
-//    }
-//    if ([[NSUserDefaults standardUserDefaults] objectForKey:CURRENT_EVENT]){
-//        currentEvent = (Event*) [[NSUserDefaults standardUserDefaults]objectForKey:CURRENT_EVENT];
-//    }
+    
 }
+- (void) deleteAll {
+    events = nil;
+    currentEvent = nil;
+    [self commit];
+}
+
 - (void) commit {
-    NSData *eventsData = [NSKeyedArchiver archivedDataWithRootObject:events];
-    [[NSUserDefaults standardUserDefaults] setObject:eventsData forKey:EVENTS];
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     
     NSData *currentEventData = [NSKeyedArchiver archivedDataWithRootObject:currentEvent];
-    [[NSUserDefaults standardUserDefaults] setObject:currentEventData forKey:CURRENT_EVENT];
-
-//    [[NSUserDefaults standardUserDefaults] setObject:events forKey:EVENTS];
-//    [[NSUserDefaults standardUserDefaults] setObject:currentEvent forKey:CURRENT_EVENT];
+    [defaults setObject:currentEventData forKey:CURRENT_EVENT];
+    
+    NSData *eventsData = [NSKeyedArchiver archivedDataWithRootObject:events];
+    [defaults setObject:eventsData forKey:EVENTS];
+    
+    
+    [defaults synchronize];
 }
 
 - (id)init {
     if (self = [super init]) {
         events = [[[EventsRequest alloc]init] getEvents];
+        // Commit any updates
+        [self commit];
     }
+    [self load];
     return self;
 }
 

@@ -54,8 +54,12 @@
     
     GlobalState * state = [GlobalState sharedState];
     NSString *selected = [[state currentEvent] slug];
-    NSLog(@"Loading Seleted: %@  Index:%lu", selected, [eventNames indexOfObject:selected]);
-    [self.eventPicker selectRow:[eventNames indexOfObject:selected] inComponent:0 animated:true];
+    NSLog(@"Selected Event Slug %@",selected);
+    NSUInteger elIndex = [eventNames indexOfObject:selected];
+    if(elIndex != NSNotFound){
+        NSLog(@"Loading Seleted: %@  Index:%lu", selected, [eventNames indexOfObject:selected]);
+        [self.eventPicker selectRow:elIndex inComponent:0 animated:true];
+    }
 
     
 }
@@ -340,5 +344,9 @@
     NSDictionary* events = [state events];
     [state setCurrentEvent:[events objectForKey:eventName]];
     [state commit];
+    
+    state = [GlobalState sharedState];
+    [state load];
+    NSLog(@"Saved current event; %@", [[state currentEvent] slug]);
 }
 @end

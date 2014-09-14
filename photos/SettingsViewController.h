@@ -8,6 +8,7 @@
 
 #import "ViewController.h"
 #import "PhotoSessionPersistence.h"
+#import "GlobalState.h"
 
 @interface SettingsViewController : UIViewController <UIPickerViewDelegate, UIPickerViewDataSource>
 

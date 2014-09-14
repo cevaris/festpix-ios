@@ -73,6 +73,7 @@
             NSLog(@"%@", [PhotoSessionPersistence loadAll]);
             
             [[NSUserDefaults standardUserDefaults] setPersistentDomain:[NSDictionary dictionary] forName:[[NSBundle mainBundle] bundleIdentifier]];
+            [[GlobalState sharedState] deleteAll];
             
             break;
             

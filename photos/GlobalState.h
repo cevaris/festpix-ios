@@ -16,5 +16,6 @@
 
 + (id)sharedState;
 - (void) commit;
+- (void) load;
 
 @end
