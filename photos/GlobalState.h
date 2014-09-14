@@ -12,6 +12,7 @@
 @interface GlobalState : NSObject
 
 @property (nonatomic, retain) NSDictionary *events;
+//@property (nonatomic, retain) Event *currentEvent;
 @property (nonatomic, retain) Event *currentEvent;
 
 + (id)sharedState;
