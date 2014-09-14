@@ -14,6 +14,8 @@
 
 @implementation SettingsViewController
 
+@synthesize eventNames;
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -27,10 +29,21 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+
+    GlobalState * state = [GlobalState sharedState];
+    eventNames = [[state events] allKeys];
+    [self.pickerEvent reloadInputViews];
+}
+
+- (void) viewWillAppear:(BOOL)animated {
     
-//    _server = @[];
+    GlobalState * state = [GlobalState sharedState];
+    NSString *selected = [state currentEvent];
+    NSUInteger elIndex = [eventNames indexOfObject:selected];
+    if(elIndex != NSNotFound){
+        [self.pickerEvent selectRow:elIndex inComponent:0 animated:true];
+    }
     
-//    _servers = @[@"http://dev.festpix.com", @"http://app.festpix.com"];
 }
 
 - (void)didReceiveMemoryWarning
@@ -83,22 +96,34 @@
     }
 }
 
+/*
+ #pragma mark - PickerView
+ */
+
 - (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView {
     return 1;
 }
 
 - (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component {
-    return _servers.count;
+    return eventNames.count;
 }
 
 - (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component {
-    return _servers[row];
+    return eventNames[row];
 }
+
 
 -(void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component {
-    NSString *server = _servers[row];
-    NSLog(@"Selected Server: %@", server);
+    NSString *eventName = eventNames[row];
+    NSLog(@"Selected Server: %@", eventName);
+    
+    GlobalState * state = [GlobalState sharedState];
+    [state setCurrentEvent:eventName];
+    [state commit];
+    
+    //    state = [GlobalState sharedState];
+    //    [state load];
+    //    NSLog(@"Saved current event; %@", [state currentEvent]);
 }
-
 
 @end

@@ -53,6 +53,8 @@ NSString *EVENTS = @"events";
         [self load];
         // Update state
         events = [[[EventsRequest alloc]init] getEvents];
+        currentEvent = currentEvent ? currentEvent : @"festpix";
+        
         // Save state
         [self commit];
     }

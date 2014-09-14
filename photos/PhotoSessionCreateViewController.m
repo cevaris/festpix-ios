@@ -19,8 +19,6 @@
 
 @implementation PhotoSessionCreateViewController
 
-@synthesize eventNames;
-
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -34,9 +32,7 @@
 {
     [super viewDidLoad];
     
-    GlobalState * state = [GlobalState sharedState];
-    eventNames = [[state events] allKeys];
-    [self.eventPicker reloadInputViews];
+   
     
     defaultImg = [UIImage imageNamed:@"camera.png"];
     
@@ -50,14 +46,12 @@
 
 - (void) viewWillAppear:(BOOL)animated {
     
-    GlobalState * state = [GlobalState sharedState];
-    NSString *selected = [state currentEvent];
-    NSUInteger elIndex = [eventNames indexOfObject:selected];
-    if(elIndex != NSNotFound){
-        [self.eventPicker selectRow:elIndex inComponent:0 animated:true];
-    }
-    
+    GlobalState *state = [GlobalState sharedState];
+    Event* event = [[state events] objectForKey:[state currentEvent]];
+    self.lblEventName.text = [event name];
+
 }
+
 
 -(void) resetUI {
     self.txtPhoneOne.text = @"5594516126";
@@ -241,6 +235,8 @@
 }
 -(void)postData {
     
+    GlobalState *state = [GlobalState sharedState];
+   
     if([self validateBeforeSubmit] == NO)
         return;
     
@@ -251,8 +247,14 @@
     NSArray* photosessions = [PhotoSessionPersistence loadAll];
     NSLog(@"Saved Logs %@", photosessions);
     
+    Event* event = [[state events] objectForKey:[state currentEvent]];
+    int eventId = [[ event objectId] intValue];
+    
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
-    NSDictionary *parameters = @{@"photo_session[phone_list]": [self getPhoneList]};
+    NSDictionary *parameters = @{
+        @"photo_session[phone_list]": [self getPhoneList],
+        @"photo_session[event_id]": [NSNumber numberWithInt:eventId]
+    };
     //http://localhost:3000/photo_sessions.json
 //    NSString *root_url = [[NSBundle mainBundle] objectForInfoDictionaryKey:@"RootURL"];
     
@@ -284,8 +286,6 @@
         PhotoSessionTableViewController *tableController = [navController.viewControllers objectAtIndex:0];
         [tableController fetchDisplayData];
         
-
-
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
 
         NSLog(@"Error: %@", error);
@@ -313,34 +313,4 @@
     [self resetUI];
 }
 
-
-/*
- #pragma mark - PickerView
- */
-
-- (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView {
-    return 1;
-}
-
-- (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component {
-    return eventNames.count;
-}
-
-- (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component {
-    return eventNames[row];
-}
-
-
--(void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component {
-    NSString *eventName = eventNames[row];
-    NSLog(@"Selected Server: %@", eventName);
-    
-    GlobalState * state = [GlobalState sharedState];
-    [state setCurrentEvent:eventName];
-    [state commit];
-    
-//    state = [GlobalState sharedState];
-//    [state load];
-//    NSLog(@"Saved current event; %@", [state currentEvent]);
-}
 @end

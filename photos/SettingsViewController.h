@@ -13,12 +13,11 @@
 @interface SettingsViewController : UIViewController <UIPickerViewDelegate, UIPickerViewDataSource>
 
 
-@property (weak, nonatomic) IBOutlet UIPickerView *pickerServer;
+@property (weak, nonatomic) IBOutlet UIPickerView *pickerEvent;
 @property (weak, nonatomic) IBOutlet UIButton *btnDeleteAll;
 
 - (IBAction)clickedDeleteAll:(id)sender;
 
-@property (strong, nonatomic) NSString *server;
-@property (strong, nonatomic) NSArray *servers;
+@property (strong, nonatomic) NSArray *eventNames;
 
 @end
