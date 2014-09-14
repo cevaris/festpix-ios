@@ -47,13 +47,13 @@
     self.txtPhoneOne.delegate = self;
     self.txtPhoneTwo.delegate = self;
     self.txtPhoneThree.delegate = self;
-
+    
 }
 
 - (void) viewWillAppear:(BOOL)animated {
     
     GlobalState * state = [GlobalState sharedState];
-    NSString *selected = [[state currentEvent] slug];
+    NSString *selected = [state currentEvent];
     NSLog(@"Selected Event Slug %@",selected);
     NSUInteger elIndex = [eventNames indexOfObject:selected];
     if(elIndex != NSNotFound){
@@ -341,12 +341,11 @@
     NSLog(@"Selected Server: %@", eventName);
     
     GlobalState * state = [GlobalState sharedState];
-    NSDictionary* events = [state events];
-    [state setCurrentEvent:[events objectForKey:eventName]];
+    [state setCurrentEvent:eventName];
     [state commit];
     
-    state = [GlobalState sharedState];
-    [state load];
-    NSLog(@"Saved current event; %@", [[state currentEvent] slug]);
+//    state = [GlobalState sharedState];
+//    [state load];
+//    NSLog(@"Saved current event; %@", [state currentEvent]);
 }
 @end

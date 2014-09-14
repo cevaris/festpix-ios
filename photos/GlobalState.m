@@ -34,18 +34,22 @@ NSString *EVENTS = @"events";
 
 - (void) load {
     
-    NSData *data = [[NSData alloc] initWithContentsOfFile: [self archivePath]];
-    NSKeyedUnarchiver *unarchiver = [[NSKeyedUnarchiver alloc] initForReadingWithData:data];
- 
-    events = [unarchiver decodeObjectForKey:EVENTS];
-    currentEvent = [unarchiver decodeObjectForKey:CURRENT_EVENT];
+//    NSData *data = [[NSData alloc] initWithContentsOfFile: [self archivePath]];
+//    NSKeyedUnarchiver *unarchiver = [[NSKeyedUnarchiver alloc] initForReadingWithData:data];
+// 
+//    events = [unarchiver decodeObjectForKey:EVENTS];
+//    currentEvent = [unarchiver decodeObjectForKey:CURRENT_EVENT];
+//    
+//    [unarchiver finishDecoding];
+//
+//    NSLog(@"Loaded Events: %@", events);
+//    NSLog(@"Loaded Events: %@", currentEvent);
     
-    [unarchiver finishDecoding];
-
-    NSLog(@"Loaded Events: %@", events);
-    NSLog(@"Loaded Events: %@", currentEvent);
     
-//    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    
+    
+    
+//    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
 //    
 //    if ([defaults objectForKey:EVENTS]){
 //        NSData *eventsData = [defaults objectForKey:EVENTS];
@@ -55,6 +59,11 @@ NSString *EVENTS = @"events";
 //        NSData *currentEventData = [defaults objectForKey:CURRENT_EVENT];
 //        currentEvent = [NSKeyedUnarchiver unarchiveObjectWithData:currentEventData];
 //    }
+    
+    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+    events = [NSKeyedUnarchiver unarchiveObjectWithData:[userDefaults objectForKey:EVENTS]];
+    currentEvent = [NSKeyedUnarchiver unarchiveObjectWithData:[userDefaults objectForKey:CURRENT_EVENT]];
+    
 }
 - (void) deleteAll {
     events = nil;
@@ -64,16 +73,25 @@ NSString *EVENTS = @"events";
 
 - (void) commit {
     
-    NSMutableData *data = [[NSMutableData alloc] init];
-    NSKeyedArchiver *archiver = [[NSKeyedArchiver alloc] initForWritingWithMutableData:data];
     
-    [archiver encodeObject:events forKey:EVENTS];
-    [archiver encodeObject:currentEvent forKey:CURRENT_EVENT];
+    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+    [userDefaults setObject:[NSKeyedArchiver archivedDataWithRootObject:self.events] forKey:EVENTS];
+    [userDefaults setObject:[NSKeyedArchiver archivedDataWithRootObject:self.currentEvent] forKey:CURRENT_EVENT];
+    [userDefaults synchronize];
     
-    [archiver finishEncoding];
-    NSError *error = nil;
-    BOOL result = [data writeToFile:[self archivePath] options:NSDataWritingAtomic error:&error];
-    NSLog(@"Successful write:%@ Error:%@", result ? @"Yes" : @"No", error);
+//    NSLog(@"SAVED EVENTS: %@", [NSKeyedUnarchiver unarchiveObjectWithData:[userDefaults objectForKey:EVENTS]]);
+    
+    
+//    NSMutableData *data = [[NSMutableData alloc] init];
+//    NSKeyedArchiver *archiver = [[NSKeyedArchiver alloc] initForWritingWithMutableData:data];
+//    
+//    [archiver encodeObject:events forKey:EVENTS];
+//    [archiver encodeObject:currentEvent forKey:CURRENT_EVENT];
+//    
+//    [archiver finishEncoding];
+//    NSError *error = nil;
+//    BOOL result = [data writeToFile:[self archivePath] options:NSDataWritingAtomic error:&error];
+//    NSLog(@"Successful write:%@ Error:%@", result ? @"Yes" : @"No", error);
     
     
 //    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
@@ -90,11 +108,13 @@ NSString *EVENTS = @"events";
 
 - (id)init {
     if (self = [super init]) {
+        // Load previous state
+        [self load];
+        // Update state
         events = [[[EventsRequest alloc]init] getEvents];
-        // Commit any updates
+        // Save state
         [self commit];
     }
-    [self load];
     return self;
 }
 
