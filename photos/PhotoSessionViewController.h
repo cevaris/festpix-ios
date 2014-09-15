@@ -18,7 +18,8 @@
 #import "Event.h"
 
 @interface PhotoSessionViewController : ViewController
-    
+
+@property (nonatomic, strong) UIImage      *defaultImg;
 @property (nonatomic, strong) PhotoSession *ps;
 
 @property (weak, nonatomic) IBOutlet UIButton *btnUrl;

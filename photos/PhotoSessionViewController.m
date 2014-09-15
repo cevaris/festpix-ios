@@ -14,6 +14,8 @@
 
 @implementation PhotoSessionViewController
 
+@synthesize defaultImg;
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -27,6 +29,8 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    defaultImg = [UIImage imageNamed:@"camera.png"];
     
     [self resetGUI];
 }
@@ -140,19 +144,25 @@
     NSString *url = [NSString stringWithFormat:@"%@/photo_sessions.json", root_url];
     [manager POST:url parameters:parameters constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
         
+        if(self.picutreOne.image != defaultImg){
         [formData appendPartWithFileData:UIImageJPEGRepresentation(self.picutreOne.image,1.0)
                                     name:[NSString stringWithFormat:@"photo_session[photos_attributes][%d][image]", 0]
                                 fileName:[NSString stringWithFormat:@"%d.jpg", 0]
                                 mimeType:@"image/jpeg"];
+        }
+        if(self.picutreTwo.image != defaultImg){
         [formData appendPartWithFileData:UIImageJPEGRepresentation(self.picutreTwo.image,1.0)
                                     name:[NSString stringWithFormat:@"photo_session[photos_attributes][%d][image]", 1]
                                 fileName:[NSString stringWithFormat:@"%d.jpg", 1]
                                 mimeType:@"image/jpeg"];
+        }
         
+        if(self.picutreThree.image != defaultImg){
         [formData appendPartWithFileData:UIImageJPEGRepresentation(self.picutreThree.image,1.0)
                                     name:[NSString stringWithFormat:@"photo_session[photos_attributes][%d][image]", 2]
                                 fileName:[NSString stringWithFormat:@"%d.jpg", 2]
                                 mimeType:@"image/jpeg"];
+        }
     } success:^(AFHTTPRequestOperation *operation, id responseObject) {
         
         NSLog(@"Success Path: %@", [responseObject valueForKey:@"path"]);

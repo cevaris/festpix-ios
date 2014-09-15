@@ -32,8 +32,6 @@
 {
     [super viewDidLoad];
     
-   
-    
     defaultImg = [UIImage imageNamed:@"camera.png"];
     
     [self resetUI];
