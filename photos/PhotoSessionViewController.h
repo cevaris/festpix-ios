@@ -14,6 +14,8 @@
 #import "PhotoSession.h"
 #import "PhotoSessionPersistence.h"
 #import "PhotoSessionTableViewController.h"
+#import "GlobalState.h"
+#import "Event.h"
 
 @interface PhotoSessionViewController : ViewController
     
@@ -27,7 +29,7 @@
 @property (weak, nonatomic) IBOutlet UIImageView *picutreThree;
 @property (weak, nonatomic) IBOutlet UIButton *btnRetry;
 @property (weak, nonatomic) IBOutlet UILabel *lblAttemptNum;
-
+@property (weak, nonatomic) IBOutlet UILabel *lblEventName;
 
 - (IBAction)clickUrl:(id)sender;
 - (IBAction)clickRetry:(id)sender;

@@ -279,6 +279,10 @@
 
         [ps setIsSuccess:YES];
         [ps setUrl:[responseObject valueForKey:@"path"]];
+        [ps setObjectId:[responseObject valueForKey:@"id"]];
+        [ps setSlug:[responseObject valueForKey:@"slug"]];
+        [ps setEventId:[responseObject valueForKey:@"event_id"]];
+        [ps setEventSlug:[responseObject valueForKey:@"event_slug"]];
         [PhotoSessionPersistence save:ps];
         NSLog(@"Saved Logs %@", [PhotoSessionPersistence loadAll]);
         

@@ -52,6 +52,13 @@
 
 - (void) resetGUI {
     if (self.ps) {
+        GlobalState *state = [GlobalState sharedState];
+        
+        Event *event = [[state events] objectForKey:[state currentEvent]];
+        if(event){
+            self.lblEventName.text = [event name];
+        }
+        
         NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
         [dateFormat setDateFormat:@"E MMM, dd"];
         
@@ -63,15 +70,15 @@
         
         self.lblCreatedAt.text = [NSString stringWithFormat:@"%@ - %@", theTime, theDate];
         self.lblIsSuccess.text = [self.ps isSuccess] ? @"Yes" : @"No";
-        self.lblAttemptNum.text = [NSString stringWithFormat:@"%d",[self.ps attemptNum]];
+//        self.lblAttemptNum.text = [NSString stringWithFormat:@"%d",[self.ps attemptNum]];
         
         if ([self.ps url]){
             [self.btnUrl setHidden:NO];
             [self.btnUrl setContentHorizontalAlignment:UIControlContentHorizontalAlignmentLeft];
             [self.btnUrl setTitle:[NSString stringWithFormat:@"http://%@", [self.ps url]] forState:UIControlStateNormal];
-            [self.btnRetry setEnabled:NO];
+//            [self.btnRetry setEnabled:NO];
         } else {
-            [self.btnUrl setHidden:YES];
+//            [self.btnUrl setHidden:YES];
         }
         
         ALAssetsLibrary *library = [[ALAssetsLibrary alloc] init];
@@ -115,11 +122,19 @@
 - (IBAction)clickRetry:(id)sender {
     NSLog(@"Retrying Upload");
     
-    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
-    NSDictionary *parameters = @{@"photo_session[phone_list]": [self.ps phoneList]};
-    //http://localhost:3000/photo_sessions.json
+    GlobalState *state = [GlobalState sharedState];
     
-    [self.ps setAttemptNum:([self.ps attemptNum]+1)];
+    Event *event = [[state events] objectForKey:[state currentEvent]];
+    
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    NSDictionary *parameters = @{
+                                 @"photo_session[phone_list]": [self.ps phoneList],
+                                 @"photo_session[event_id]": [NSNumber numberWithInt: [[event objectId] intValue]]
+                                 };
+//    NSDictionary *parameters = @{@"photo_session[phone_list]": [self.ps phoneList]};
+    //http://localhost:3000/photo_sessions.json
+    int newAttemptNum = [self.ps attemptNum]+1;
+    [self.ps setAttemptNum:newAttemptNum];
     
     NSString *root_url = [[NSBundle mainBundle] objectForInfoDictionaryKey:@"RootURL"];
     NSString *url = [NSString stringWithFormat:@"%@/photo_sessions.json", root_url];

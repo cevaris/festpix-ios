@@ -56,12 +56,16 @@
     
         [ps setCreatedAt:(NSDate *) [info valueForKey:@"createdAt"]];
         [ps setAttemptNum:(int)[info valueForKey:@"attemptNum"]];
+        [ps setObjectId:[info valueForKey:@"objectId"]];
+        [ps setSlug:[info valueForKey:@"slug"]];
         [ps setUrl:[info valueForKey:@"url"]];
         [ps setPhoneList: [info  valueForKey:@"phoneList"]];
         [ps setIsSuccess:[(NSNumber*)[info  valueForKey:@"isSuccess"] boolValue]];
         [ps setPhotoOne:[info valueForKey:@"photoOne"]];
         [ps setPhotoTwo:[info valueForKey:@"photoTwo"]];
         [ps setPhotoThree:[info valueForKey:@"photoThree"]];
+        [ps setEventId:[info valueForKey:@"eventId"]];
+        [ps setEventSlug:[info valueForKey:@"eventSlug"]];
         [ps setDb:info];
       
         [results addObject:ps];
@@ -132,6 +136,10 @@
     NSLog(@"Saving PhotoSession: %@", ps);
     
     [mObject setValue:[ps url]  forKey:@"url"];
+    [mObject setValue:[ps objectId]  forKey:@"objectId"];
+    [mObject setValue:[ps slug]  forKey:@"slug"];
+    [mObject setValue:[ps eventId]  forKey:@"eventId"];
+    [mObject setValue:[ps eventSlug]  forKey:@"eventSlug"];
     [mObject setValue:[ps createdAt]  forKey:@"createdAt"];
     [mObject setValue:[ps phoneList]  forKey:@"phoneList"];
     [mObject setValue:[ps photoOne]   forKey:@"photoOne"];

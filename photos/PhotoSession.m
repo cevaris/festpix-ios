@@ -16,7 +16,11 @@
         self.createdAt  = [NSDate date];
         self.attemptNum = 0;
         self.isSuccess  = NO;
+        self.objectId   = nil;
+        self.slug       = nil;
         self.url        = nil;
+        self.eventId    = nil;
+        self.eventSlug  = nil;
         self.db         = nil;
     }
     return self;

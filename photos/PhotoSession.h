@@ -11,12 +11,16 @@
 @interface PhotoSession : NSObject
 
 
+@property NSString  *objectId;
+@property NSString  *slug;
 @property NSString  *url;
 @property NSDate    *createdAt;
 @property NSString  *phoneList;
 @property NSString  *photoOne;
 @property NSString  *photoTwo;
 @property NSString  *photoThree;
+@property NSString  *eventId;
+@property NSString  *eventSlug;
 @property int       attemptNum;
 @property BOOL      isSuccess;
 
