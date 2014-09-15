@@ -51,9 +51,12 @@ NSString *EVENTS = @"events";
     if (self = [super init]) {
         // Load previous state
         [self load];
+
         // Update state
         events = [[[EventsRequest alloc]init] getEvents];
         currentEvent = currentEvent ? currentEvent : @"festpix";
+        
+        NSLog(@"%@", events);
         
         // Save state
         [self commit];

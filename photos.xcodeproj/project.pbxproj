@@ -275,9 +275,9 @@
 		53A4B81819527EBC007262F0 /* images */ = {
 			isa = PBXGroup;
 			children = (
-				533B168F199702A200591FE8 /* person-30x30.png */,
-				533B1690199702A200591FE8 /* person.png */,
 				53A668951991DDCF007A61D7 /* logo-60x60.png */,
+				533B1690199702A200591FE8 /* person.png */,
+				533B168F199702A200591FE8 /* person-30x30.png */,
 				53A668961991DDCF007A61D7 /* logo-120x120.png */,
 				53A668931991DD02007A61D7 /* logo.png */,
 				538F0CA11990824E0022B1A4 /* camera-30x30.png */,
